@@ -22,7 +22,7 @@ $conversation = get_conversation($twid);
 	<title>TweeView</title>
 	<meta charset="UTF-8">
 	<script src="https://d3js.org/d3.v4.min.js"></script>
-	<script src="tweet_parser.js"></script>
+	<script src="tweet_parser.js?cache=1"></script>
 	<script>
 	// Find the right method, call on correct element
 	function launchIntoFullscreen(element) {
@@ -139,24 +139,6 @@ $conversation = get_conversation($twid);
 	<div id="page">
 		<div id="treeContainer">
 			<svg id="tree">
-				<style>
-					.has_more_icon {
-						visibility: hidden;
-					}
-					.has_more .has_more_icon {
-						visibility: visible;
-					}
-				</style>
-				<defs>
-					<symbol id="has_more">
-						<g transform="translate(20 20)">
-							<circle r="18" fill="#800" stroke-width="2px" stroke="#fff" stroke-location="inside"></circle>
-							<circle r="3" cx="-9" fill="#fff"></circle>
-							<circle r="3" cx="0" fill="#fff"></circle>
-							<circle r="3" cx="9" fill="#fff"></circle>
-						</g>
-					</symbol>
-				</defs>
 			</svg>
 			<div style="position: absolute; bottom: 5px; left: 5px; color: #eee; background-color: rgba(51, 51, 51, 0.8);"> Colors represent reply times:
 				<span style="color: #FA5050; margin: 20px;">5&nbsp;minutes</span>
