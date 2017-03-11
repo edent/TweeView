@@ -869,7 +869,10 @@ class TweetVisualization {
 */
 class VisualizationController {
 	constructor(container, offline = false) {
-		// TODO: container isn't used.
+		/**
+		* TODO: container isn't used.
+		*/
+
 		this.feed = new FeedController(document.getElementById('feedContainer'));
 		this.vis = new TweetVisualization(document.getElementById('tree'), this.feed);
 		this.infoBox = new InfoBox(document.getElementById('infoBox'));

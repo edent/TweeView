@@ -43,7 +43,7 @@ function get_conversation($twid) {
 		$bodyHTML = twitter_format($post);
 		$username = $post['user']['screen_name'];
 		$name = $post['user']['name'];
-		$avatar = $post['user']['profile_image_url_https'];
+		$avatar = str_replace('_normal.', '.',$post['user']['profile_image_url_https']);
 		$time = strtotime($post['created_at'])*1000;
 
 		//	Place the post in the array based on its ID
