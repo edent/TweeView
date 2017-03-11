@@ -155,7 +155,7 @@ function twitter_format($tweet) {
 		foreach ($entities['media'] as $media) {
 			list ($start, $end) = $media['indices'];
 			$replacements[$start] = array($start, $end,
-			"<a href=\"{$media['url']}\">{$media['display_url']}</a>");
+			"<br><a href=\"{$media['media_url_https']}\"><img src=\"{$media['media_url_https']}:thumb\" /></a>");
 		}
 	}
 

@@ -185,7 +185,7 @@ $conversation = get_conversation($twid);
 	<script id="initialization"><?php echo $conversation; ?></script>
 	<script>
 	function downloadSVG(){
-			//	Adapted from http://stackoverflow.com/a/23218877/1127699
+		//	Adapted from http://stackoverflow.com/a/23218877/1127699
 		//	Get the SVG
 		var svgTree = document.getElementById("tree");
 		//	Turn it into valid XML
