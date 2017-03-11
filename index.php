@@ -155,7 +155,7 @@ $conversation = get_conversation($twid);
 <body>
 	<div id="page">
 		<div id="treeContainer">
-			<svg id="tree">
+			<svg id="tree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			</svg>
 			<div id="bottom"> Colours represent reply times:
 				<span style="color: #FA5050; margin: 20px;">5&nbsp;minutes</span>
@@ -163,6 +163,7 @@ $conversation = get_conversation($twid);
 				<span style="color: #F5F1D3; margin: 20px;">1&nbsp;hour</span>
 				<span style="color: #47D8F5; margin: 20px;">3&nbsp;hours+</span>
 				<button id="fs" onclick="launchIntoFullscreen(document.documentElement);"><span style="color: #000000;">Go Full Screen</span></button>
+				<button id="dl" onclick="downloadSVG();"><span style="color: #000000;">Download SVG</span></button>
 			</div>
 		</div>
 		<div id="sidebar">
@@ -182,6 +183,20 @@ $conversation = get_conversation($twid);
 		</div>
 	</div>
 	<script id="initialization"><?php echo $conversation; ?></script>
+	<script>
+	function downloadSVG(){
+			//	Adapted from http://stackoverflow.com/a/23218877/1127699
+		//	Get the SVG
+		var svgTree = document.getElementById("tree");
+		//	Turn it into valid XML
+		var serializer = new XMLSerializer();
+		var source = serializer.serializeToString(svgTree);
+		source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+		//	SVG to URI
+		var svgData = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
+		window.location.assign(svgData);
+	}
+	</script>
 	<script><?php echo $error; ?></script>
 </body>
 </html>
