@@ -831,6 +831,8 @@ class TweetVisualization {
 			let group = d3.select(this);
 			if (datum.data instanceof TweetNode) {
 				let tweet = datum.data.tweet;
+				group.append('title')
+						.text(decodeHtml(tweet.bodyText));
 				group.append('image')
 						.attr('xlink:href', tweet.avatar)
 						.attr('height', 40)
@@ -945,4 +947,13 @@ class VisualizationController {
 			}
 		}
 	}
+}
+
+/**
+* http://stackoverflow.com/a/42182294/1127699
+**/
+function decodeHtml(html) {
+	var tmptxt = document.createElement("textarea");
+	tmptxt.innerHTML = html;
+	return tmptxt.value;
 }
