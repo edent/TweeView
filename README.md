@@ -2,11 +2,11 @@
 
 A Tree View For Tweets
 
-<img src="https://pbs.twimg.com/media/C58lgHYWYAA7U_A.jpg:small" />
+## Video Demo
 
-## Demo
+<a href="https://www.youtube.com/embed/-_WYtn6rlfM"><img src="https://pbs.twimg.com/media/C58lgHYWYAA7U_A.jpg:small" /></a>
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/-_WYtn6rlfM" frameborder="0" allowfullscreen></iframe>
+[Watch on YouTube](https://youtu.be/-_WYtn6rlfM)
 
 ## Requirements
 
