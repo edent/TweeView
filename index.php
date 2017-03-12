@@ -184,18 +184,18 @@ $conversation = get_conversation($twid);
 	</div>
 	<script id="initialization"><?php echo $conversation; ?></script>
 	<script>
-	function downloadSVG(){
-		//	Adapted from http://stackoverflow.com/a/23218877/1127699
-		//	Get the SVG
-		var svgTree = document.getElementById("tree");
-		//	Turn it into valid XML
-		var serializer = new XMLSerializer();
-		var source = serializer.serializeToString(svgTree);
-		source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
-		//	SVG to URI
-		var svgData = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
-		window.location.assign(svgData);
-	}
+		function downloadSVG(){
+			//	Adapted from http://stackoverflow.com/a/23218877/1127699
+			//	Get the SVG
+			var svgTree = document.getElementById("tree");
+			//	Turn it into valid XML
+			var serializer = new XMLSerializer();
+			var source = serializer.serializeToString(svgTree);
+			source = '<'+'?xml version="1.0" standalone="no"?>\r\n' + source;
+			//	SVG to URI
+			var svgData = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
+			window.location.assign(svgData);
+		}
 	</script>
 	<script><?php echo $error; ?></script>
 </body>
