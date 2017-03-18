@@ -28,6 +28,7 @@ $conversation = get_conversation($twid);
 	<meta charset="UTF-8">
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<script src="tweet_parser.js?cache=1"></script>
+	<script src="SVG2Bitmap.js"></script>
 	<script>
 	// Find the right method, call on correct element
 	function launchIntoFullscreen(element) {
@@ -42,7 +43,6 @@ $conversation = get_conversation($twid);
 		}
 	}
 	</script>
-
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.8/semantic.min.css">
 	<style type="text/css">
 		body {
@@ -163,7 +163,8 @@ $conversation = get_conversation($twid);
 				<span style="color: #F5F1D3; margin: 20px;">1&nbsp;hour</span>
 				<span style="color: #47D8F5; margin: 20px;">3&nbsp;hours+</span>
 				<button id="fs" onclick="launchIntoFullscreen(document.documentElement);"><span style="color: #000000;">Go Full Screen</span></button>
-				<button id="dl" onclick="downloadSVG();"><span style="color: #000000;">Download SVG</span></button>
+				<button id="dlSVG" onclick="downloadSVG();"><span style="color: #000000;">Download SVG</span></button>
+				<button id="dlPNG" onclick="downloadPNG();"><span style="color: #000000;">Download PNG</span></button>
 			</div>
 		</div>
 		<div id="sidebar">
@@ -174,6 +175,7 @@ $conversation = get_conversation($twid);
 						<input type="url" name="url" required placeholder="Paste a Twitter status URL here...">
 						<button>Generate TweeView</button>
 					</form>
+					<img id="download"/>
 				</div>
 				<div id="feedInner">
 					<div class="ui comments" id="feed">
@@ -194,7 +196,17 @@ $conversation = get_conversation($twid);
 			source = '<'+'?xml version="1.0" standalone="no"?>\r\n' + source;
 			//	SVG to URI
 			var svgData = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
-			window.location.assign(svgData);
+			window.open(svgData);
+		}
+		function downloadPNG(){
+			//	Set a temporary home for the image
+			var download = document.getElementById("download");
+			download.onload = function() {
+				window.open(encodeURI(download.src));
+				//	Delete the temporary image
+				download.src = "";
+			}
+			SVG2Bitmap(document.querySelector('svg'), download)
 		}
 	</script>
 	<script><?php echo $error; ?></script>

@@ -51,6 +51,7 @@ TweeView is heavily based on several amazing Open Source projects:
 * [Semantic UI](https://github.com/semantic-org/semantic-ui/) - which is [MIT](https://github.com/Semantic-Org/Semantic-UI/blob/master/LICENSE.md)
 * [`catcert.pem`](https://curl.haxx.se/docs/caextract.html) - which is [Mozilla Public License, v. 2.0](https://hg.mozilla.org/releases/mozilla-release/raw-file/default/security/nss/lib/ckfw/builtins/certdata.txt)
 * Some of the functions for dealing with [TWARC](https://github.com/DocNow/twarc/) (Twitter Archive) may be [CC0](https://github.com/DocNow/twarc/blob/master/LICENSE)
+* [SVG2Bitmap](https://github.com/Kaiido/SVG2Bitmap) - which is MIT
 * Snippets from [StackOverflow](https://stackexchange.com/legal) - which are [CC-BY-SA](https://creativecommons.org/licenses/by-sa/3.0/)
 
 As a consequence, the minor changes to CodeBird are *also* GPLv3.
