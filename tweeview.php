@@ -55,7 +55,7 @@ function get_conversation($twid) {
 				"images"   => array(),	//	TODO
 				"username" => htmlspecialchars($username,ENT_QUOTES),
 				"name"     => htmlspecialchars($name,ENT_QUOTES),
-				"bodyText" => htmlentities($text),
+				"bodyText" => html_entity_decode($text),
 				"bodyHtml" => $bodyHTML,
 				"id"       => $id,
 				"avatar"   => $avatar,
