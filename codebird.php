@@ -2657,7 +2657,7 @@ class Codebird
  * Catch errors when authtoken is expired
  */
 class CodebirdAuthException extends \Exception {
-	
+
 }
 
 
@@ -2665,14 +2665,14 @@ class CodebirdAuthException extends \Exception {
  * Catch error when credentials are not set correclty
  */
 class CodebirdCredentialsException extends \Exception {
-	
+
 }
 
 /**
  * Catch errors r elated to bad endpoi ts
  */
 class CodebirdEndpointException extends \Exception {
-	
+
 }
 
 /*
@@ -2680,6 +2680,5 @@ class CodebirdEndpointException extends \Exception {
  */
 
 class CodebirdMediaException extends \Exception {
-	
-}
 
+}

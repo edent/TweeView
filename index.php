@@ -20,14 +20,11 @@ if(isset($_GET["error"])) {
 	$error = "alert('That is not a valid Twitter status URL. It should look like https://twitter.com/edent/status/837429292476825600');";
 }
 
-$conversation = get_conversation($twid);
-
 ?>
 <head>
 	<title>TweeView</title>
 	<meta charset="UTF-8">
 	<script src="https://d3js.org/d3.v4.min.js"></script>
-	<script src="tweet_parser.js?cache=1"></script>
 	<script src="SVG2Bitmap.js"></script>
 	<script>
 	// Find the right method, call on correct element
@@ -184,8 +181,13 @@ $conversation = get_conversation($twid);
 			</div>
 		</div>
 	</div>
-	<script id="initialization"><?php echo $conversation; ?></script>
 	<script>
+		var treeData = <?php echo get_conversation($twid); ?>;
+	</script>
+
+	<script>
+		//	Download Buttons
+
 		function downloadSVG(){
 			//	Adapted from http://stackoverflow.com/a/23218877/1127699
 			//	Get the SVG
@@ -198,6 +200,7 @@ $conversation = get_conversation($twid);
 			var svgData = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
 			window.open(svgData);
 		}
+
 		function downloadPNG(){
 			//	Set a temporary home for the image
 			var download = document.getElementById("download");
@@ -209,6 +212,7 @@ $conversation = get_conversation($twid);
 			SVG2Bitmap(document.querySelector('svg'), download)
 		}
 	</script>
-	<script><?php echo $error; ?></script>
+	<script src="tweet_parser.js?cache=2"></script>
+
 </body>
 </html>

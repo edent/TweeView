@@ -55,7 +55,7 @@ function get_conversation($twid) {
 				"images"   => array(),	//	TODO
 				"username" => htmlspecialchars($username,ENT_QUOTES),
 				"name"     => htmlspecialchars($name,ENT_QUOTES),
-				"bodyText" => htmlspecialchars($text,ENT_QUOTES),
+				"bodyText" => htmlentities($text),
 				"bodyHtml" => $bodyHTML,
 				"id"       => $id,
 				"avatar"   => $avatar,
@@ -98,7 +98,8 @@ function get_conversation($twid) {
 	$output = substr($output, 1, -1);
 
 	//	Output into the JavaScript
-	return "Treeverse.initializeForStaticData(document.getElementById('tweetContainer')," . $output .");";
+	// return "Treeverse.initializeForStaticData(document.getElementById('tweetContainer')," . $output .");";
+	return $output;
 }
 
 function execute_codebird($function, $api_options = NULL) {
