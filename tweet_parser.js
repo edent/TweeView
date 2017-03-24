@@ -134,7 +134,7 @@ function zoomToFit() {
 	svg.transition()
 		.duration(1500)
 		.call(zoom.transform, d3.zoomIdentity.translate(
-			(clientRect.width/2), 20
+			(clientRect.width/2), 45
 		)
 		.scale(zoomLevel)
 	);
