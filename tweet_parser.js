@@ -171,24 +171,42 @@ function colorEdge(edgeTarget) {
 
 //	Add a retweeted count above the node
 node.append("text")
-	.attr("dy", ".35em")
-	.attr("y", -30 )
+	.attr("dy", "")
+	.attr("y", -25 )
 	.style("text-anchor", "middle")
 	.style("fill", "#00ff00")
+	.style("font-family", "sans-serif")
+	.style("stroke", "#000000")
+	.style("stroke-width", ".75px")
+	.style("font-size", "1.5em")
 	.text(function(d) {
 		if (d.data.tweet.retweets > 0) {
-			return d.data.tweet.retweets + " ♻";
+			var count = d.data.tweet.retweets;
+			if (count >= 1000) {
+				count = Math.round(count / 1000);
+				count = count.toString() + "K";
+			}
+			return count + "♻";
 		}
 	});
 
 //	Add a favourite count bellow the node
 node.append("text")
-	.attr("dy", ".35em")
-	.attr("y", 30)
+	.attr("dy", "")
+	.attr("y", 42)
 	.style("text-anchor", "middle")
 	.style("fill", "#ff0000")
+	.style("font-family", "sans-serif")
+	.style("stroke", "#000000")
+	.style("stroke-width", ".75px")
+	.style("font-size", "1.5em")
 	.text(function(d) {
 		if (d.data.tweet.favs > 0) {
-			return d.data.tweet.favs + " ♥";
+			var count = d.data.tweet.favs;
+			if (count >= 1000) {
+				count = Math.round(count / 1000);
+				count = count.toString() + "K";
+			}
+			return count + "♥";
 		}
 	});
