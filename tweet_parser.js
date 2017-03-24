@@ -168,8 +168,27 @@ function colorEdge(edgeTarget) {
 }
 
 // adds the text to the node
-// node.append("text")
-//   .attr("dy", ".35em")
-//   .attr("y", function(d) { return d.children ? -20 : 20; })
-//   .style("text-anchor", "middle")
-//   .text(function(d) { return d.data.tweet.name; });
+
+//	Add a retweeted count above the node
+node.append("text")
+	.attr("dy", ".35em")
+	.attr("y", -30 )
+	.style("text-anchor", "middle")
+	.style("fill", "#00ff00")
+	.text(function(d) {
+		if (d.data.tweet.retweets > 0) {
+			return d.data.tweet.retweets + " ♻";
+		}
+	});
+
+//	Add a favourite count bellow the node
+node.append("text")
+	.attr("dy", ".35em")
+	.attr("y", 30)
+	.style("text-anchor", "middle")
+	.style("fill", "#ff0000")
+	.text(function(d) {
+		if (d.data.tweet.favs > 0) {
+			return d.data.tweet.favs + " ♥";
+		}
+	});

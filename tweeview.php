@@ -47,6 +47,8 @@ function get_conversation($twid) {
 		// $avatar = str_replace('_normal.', '.',$post['user']['profile_image_url_https']);
 		$avatar = $post['user']['profile_image_url_https'];
 		$time = strtotime($post['created_at'])*1000;
+		$retweets = $post['retweet_count'];
+		$favs = $post['favorite_count'];
 
 		//	Place the post in the array based on its ID
 		$references[$id] = array(
@@ -61,6 +63,8 @@ function get_conversation($twid) {
 				"avatar"   => $avatar,
 				"time"     => $time,
 				"replies"  => 0,
+				"retweets" => $retweets,
+				"favs"     => $favs,
 			),
 			"children" => array()
 		);
