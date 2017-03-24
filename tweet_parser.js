@@ -49,7 +49,15 @@ var svg = d3.select(document.getElementById('tree')).append("svg")
 	.attr("height", height + margin.top + margin.bottom)
 	.call(zoom)
 	// .on("dblclick.zoom", null)
+	//	Invisible rectangle to allow zoom and pan from anywhere.
+	svg.append("rect")
+	    .attr("class", "underlay")
+	    .attr("width", width)
+	    .attr("height", height)
+		 .attr("opacity", 0);
 g = svg.append("g");
+
+
 
 // adds the links between the nodes
 var link = g.selectAll(".link")
