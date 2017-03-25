@@ -15,6 +15,20 @@ if(isset($_GET["id"])) {
 	$twid = "837429292476825600";
 }
 
+if(isset($_GET["rt"])) {
+	$showRT = true;
+} else {
+	//	Default conversation to view
+	$showRT = false;
+}
+
+if(isset($_GET["fav"])) {
+	$showFav = true;
+} else {
+	//	Default conversation to view
+	$showFav = false;
+}
+
 $error = "";
 if(isset($_GET["error"])) {
 	$error = "alert('That is not a valid Twitter status URL. It should look like https://twitter.com/edent/status/837429292476825600');";
@@ -48,7 +62,7 @@ if(isset($_GET["error"])) {
 		a {
 			cursor: pointer;
 		}
-		input {
+		#urlBox {
 			width: 100%;
 		}
 
@@ -169,7 +183,12 @@ if(isset($_GET["error"])) {
 				<div id="infoBox">
 					<p>Welcome to <a href="https://github.com/edent/TweeView">TweeView</a> - a Tree-based way to visualise Twitter conversations.</p>
 					<form action="importer.php" method="post">
-						<input type="url" name="url" required placeholder="Paste a Twitter status URL here...">
+						<input type="url" name="url" id="urlBox" required placeholder="Paste a Twitter status URL here...">
+						<input type="checkbox" id="checkRT" name="rt">
+ 						<label for="checkRT">Show Retweet Counts</label>
+						<br>
+						<input type="checkbox" id="checkFav" name="fav">
+ 						<label for="checkFav">Show Favourite Counts</label>
 						<button>Generate TweeView</button>
 					</form>
 					<img id="download"/>
@@ -182,7 +201,7 @@ if(isset($_GET["error"])) {
 		</div>
 	</div>
 	<script>
-		var treeData = <?php echo get_conversation($twid); ?>;
+		var treeData = <?php echo get_conversation($twid, $showRT, $showFav); ?>;
 	</script>
 
 	<script>

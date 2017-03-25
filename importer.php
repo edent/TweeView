@@ -20,6 +20,16 @@ if (filter_var($url, FILTER_VALIDATE_URL) === false) {
 	$pieces = explode("/", $parsed_url["path"]);
 	if (intval($pieces[3]) > 0) {
 		$query = "index.php?id=" . $pieces[3];
+
+		//	Any extras
+		if(isset($_POST['rt'])){
+			$query .= "&rt";
+		}
+
+		if(isset($_POST['fav'])){
+			$query .= "&fav";
+		}
+
 		//	Redirect
 		header("Location: $query");
 		exit;

@@ -47,18 +47,19 @@ function zoomer() {
 var svg = d3.select(document.getElementById('tree')).append("svg")
 	.attr("width","100%")
 	.attr("height", height + margin.top + margin.bottom)
-	.call(zoom)
+	.call(zoom);
+
+
 	// .on("dblclick.zoom", null)
-	//	Invisible rectangle to allow zoom and pan from anywhere.
-	svg.append("rect")
-	    .attr("class", "underlay")
-	    .attr("width", width)
-	    .attr("height", height)
-		 .attr("opacity", 0);
+
+//	Invisible rectangle to allow zoom and pan from anywhere.
+svg.append("rect")
+	.attr("class", "underlay")
+	.attr("width", width)
+	.attr("height", height)
+	.attr("opacity", 0);
+
 g = svg.append("g");
-
-
-
 // adds the links between the nodes
 var link = g.selectAll(".link")
 	.data( nodes.descendants().slice(1))
@@ -103,7 +104,10 @@ node.append("image")
 	.attr("transform","translate(-24 -24)")
 	.attr("onclick",function(d) {
 		if (d.parent != null) {
-			return "console.log('" + d.data.tweet.id + " - " +  d.parent.data.tweet.id  +"')";
+			return "console.log('" + hoverCard(d) +"')";
+			// collapse(d);
+			// return "console.log('" + d.data.tweet.id + " - " +  d.parent.data.tweet.id  +"')";
+			// return "console.log('collapsed?')";
 		} else {
 			return "console.log('" + d.data.tweet.id + "')";
 		}
@@ -218,3 +222,10 @@ node.append("text")
 			return count + "♥";
 		}
 	});
+
+
+
+function hoverCard(n) {
+	return (n.data.tweet.bodyHtml);
+	// return null;
+}

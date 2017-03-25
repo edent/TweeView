@@ -15,7 +15,7 @@ $cb->setToken($access_token, $access_token_secret);
 
 //	Functions
 
-function get_conversation($twid) {
+function get_conversation($twid, $rt, $fav) {
 	GLOBAL $cb;
 	//	We want data returned as an array
 	$cb->setReturnFormat(CODEBIRD_RETURNFORMAT_ARRAY);
@@ -47,8 +47,12 @@ function get_conversation($twid) {
 		// $avatar = str_replace('_normal.', '.',$post['user']['profile_image_url_https']);
 		$avatar = $post['user']['profile_image_url_https'];
 		$time = strtotime($post['created_at'])*1000;
-		$retweets = $post['retweet_count'];
-		$favs = $post['favorite_count'];
+		if($rt) {
+			$retweets = $post['retweet_count'];
+		}
+		if($fav) {
+			$favs = $post['favorite_count'];
+		}
 
 		//	Place the post in the array based on its ID
 		$references[$id] = array(
