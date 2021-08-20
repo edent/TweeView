@@ -78,7 +78,7 @@ if(isset($_GET["error"])) {
 			top: 0;
 			left: 0;
 			bottom: 0;
-			width: 75%;
+			width: 100%;
 		}
 
 		.selected rect {
@@ -95,10 +95,11 @@ if(isset($_GET["error"])) {
 			width: 25%;
 			background: #eee;
 			overflow-x: hidden;
+			height: min-content;
 		}
 
 		#infoBox {
-			padding: 18px;
+			padding: 1em;
 			background-color: #fff;
 			box-shadow: 0 1px 10px #ccc;
 			/*position: absolute;*/
@@ -184,17 +185,14 @@ if(isset($_GET["error"])) {
 					<p>Welcome to <a href="https://github.com/edent/TweeView">TweeView</a> - a Tree-based way to visualise Twitter conversations.</p>
 					<form action="importer.php" method="post">
 						<input type="url" name="url" id="urlBox" required placeholder="Paste a Twitter status URL here...">
-						<input type="checkbox" id="checkRT" name="rt">
- 						<label for="checkRT">Show Retweet Counts</label>
-						<br>
-						<input type="checkbox" id="checkFav" name="fav">
- 						<label for="checkFav">Show Favourite Counts</label>
 						<button>Generate TweeView</button>
 					</form>
 					<img id="download"/>
 				</div>
 				<div id="feedInner">
 					<div class="ui comments" id="feed">
+						Note - only works for Tweets sent in the last 7 days.<br>
+						Will only get a maximum of 100 replies.
 					</div>
 				</div>
 			</div>

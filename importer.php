@@ -2,18 +2,19 @@
 
 //	Get the URL sent by the main page
 $url = $_POST["url"];
-
+$url = trim($url);
 // A valid Twitter Status URL should look like
 //	https://twitter.com/edent/status/837429292476825600
 
 //	Is this a URL?
 if (filter_var($url, FILTER_VALIDATE_URL) === false) {
-	error();
+	var_dump($_POST);
+	die();
 } else {
 	$parsed_url = parse_url($url);
 	//	Make sure it came from Twitter
 	if ("twitter.com" != $parsed_url["host"]) {
-		error();
+		error("Not a Twitter URL");
 	}
 
 	//	Look at the path - get the status number
