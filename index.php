@@ -162,6 +162,10 @@ if(isset($_GET["error"])) {
 			text-align: center;
 			color: #888;
 		}
+
+		#download {
+			display: none !important;
+		}
 	</style>
 </head>
 <body>
