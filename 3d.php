@@ -1,7 +1,25 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <style> body { margin: 0; } </style>
+  <style> body { margin: 0; }
+
+  #feedContainer {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1em;
+        background: aliceblue;
+         width: 25%;
+         padding: 1em;
+      }
+   .label {
+      background-color: #000;
+   }
+
+   .avatar {
+      float: left;
+   }
+   </style>
 
   <script src="//unpkg.com/three"></script>
   <script src="//unpkg.com/three-spritetext"></script>
@@ -20,12 +38,38 @@
 
 <body>
   <div id="3d-graph"></div>
-
-  <script>
-    const Graph = ForceGraph3D()
+  <div id="feedContainer">
+     <div id="infoBox">
+        <p>Welcome to <a href="https://github.com/edent/TweeView">TweeView</a> - a Tree-based way to visualise Twitter conversations.</p>
+        <form action="importer.php" method="post">
+           <input type="url" name="url" id="urlBox" required placeholder="Paste a Twitter status URL here...">
+           <input type="hidden" name="page" value="3d.php">
+           <button>Generate TweeView</button>
+        </form>
+        <img id="download"/>
+     </div>
+     <div id="feedInner">
+        <div class="ui comments" id="feed">
+           Only works for Tweets sent in the last 7 days.<br>
+           Will only get a maximum of 100 replies.
+        </div>
+     </div>
+  </div>
+  <script type="module">
+     import { UnrealBloomPass } from '//cdn.skypack.dev/three/examples/jsm/postprocessing/UnrealBloomPass.js';    const Graph = ForceGraph3D()
       (document.getElementById('3d-graph'))
          .jsonUrl("force.json.php?id=<?php echo $twid; ?>")
-        .nodeLabel('text');
+         .backgroundColor("#000")
+        .nodeLabel('text')
+        .nodeColor(0xff0000)
+        .nodeVal('likes')
+       .linkOpacity(1)
+       .linkCurvature(.1)
+       .linkWidth(1)
+       .linkDirectionalArrowLength(5)
+       .linkDirectionalArrowColor(0x00ff00)
+       .linkDirectionalParticles(2)
+       .linkDirectionalParticleWidth(3);
         // .nodeAutoColorBy('group')
         // .linkThreeObjectExtend(true)
         // .linkThreeObject(link => {
@@ -43,7 +87,11 @@
           // Position sprite
           // Object.assign(sprite.position, middlePos);
         // });
-
+        const bloomPass = new UnrealBloomPass();
+          bloomPass.strength = 3;
+          bloomPass.radius = 1;
+          bloomPass.threshold = 0.1;
+          Graph.postProcessingComposer().addPass(bloomPass);
     // Spread nodes a little wider
     Graph.d3Force('charge').strength(-120);
 

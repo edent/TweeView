@@ -26,14 +26,12 @@ if(isset($_GET["id"])) {
     //   Load from JSON
     const Graph = new ThreeForceGraph()
       .jsonUrl("force.json.php?id=<?php echo $twid; ?>")
-      .nodeColor(0xff0000)
+      .nodeColor(0x0000ff)
       .linkOpacity(1)
       .linkCurvature(.1)
       .linkWidth(1)
       .linkDirectionalArrowLength(5)
-      .linkDirectionalArrowColor(0x00ff00)
-      .linkDirectionalParticles(2)
-      .linkDirectionalParticleWidth(3);
+      .linkDirectionalArrowColor(0x00ff00);
     // Setup renderer
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);

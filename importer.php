@@ -6,6 +6,8 @@ $url = trim($url);
 // A valid Twitter Status URL should look like
 //	https://twitter.com/edent/status/837429292476825600
 
+$page = $_POST["page"];
+
 //	Is this a URL?
 if (filter_var($url, FILTER_VALIDATE_URL) === false) {
 	var_dump($_POST);
@@ -20,16 +22,7 @@ if (filter_var($url, FILTER_VALIDATE_URL) === false) {
 	//	Look at the path - get the status number
 	$pieces = explode("/", $parsed_url["path"]);
 	if (intval($pieces[3]) > 0) {
-		$query = "index.php?id=" . $pieces[3];
-
-		//	Any extras
-		if(isset($_POST['rt'])){
-			$query .= "&rt";
-		}
-
-		if(isset($_POST['fav'])){
-			$query .= "&fav";
-		}
+		$query = "{$page}?id=" . $pieces[3];
 
 		//	Redirect
 		header("Location: $query");

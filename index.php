@@ -189,6 +189,7 @@ if(isset($_GET["error"])) {
 					<p>Welcome to <a href="https://github.com/edent/TweeView">TweeView</a> - a Tree-based way to visualise Twitter conversations.</p>
 					<form action="importer.php" method="post">
 						<input type="url" name="url" id="urlBox" required placeholder="Paste a Twitter status URL here...">
+						<input type="hidden" name="page" value="index.php">
 						<button>Generate TweeView</button>
 					</form>
 					<img id="download"/>

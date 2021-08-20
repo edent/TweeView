@@ -18,7 +18,7 @@ if(isset($_GET["id"])) {
 	$id = [$twid];
 
 	$params = [
-	    'tweet.fields' => 'attachments,author_id,created_at,conversation_id',
+	    'tweet.fields' => 'attachments,author_id,created_at,conversation_id,public_metrics',
 		 "expansions"   => "author_id",
 		 'user.fields'  => "username,profile_image_url",
 	];
@@ -71,9 +71,18 @@ if(isset($_GET["id"])) {
 	{
 		$post_id = $post->id;
 		$reference_id = $post->referenced_tweets[0]->id;
+		$retweets = $post->public_metrics->retweet_count + $post->public_metrics->quote_count;
+		$likes = $post->public_metrics->like_count;
 
 		if (null != $post_id) {
-			$node = array('id' => $post_id, "text"=> $post->text);
+			$node = array('id' => $post_id,
+				"text"=> "<span class='label'>" .
+				         	"<img class='avatar' src='" . $users[$post->author_id] . "'>" .
+								$post->text .
+							"</span>",
+				"likes"    => $likes,
+				"retweets" => $retweets
+				);
 			array_push($nodes,$node);
 		}
 
