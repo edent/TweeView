@@ -4,14 +4,16 @@
   <style> body { margin: 0; }
 
   #feedContainer {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 1em;
-        background: aliceblue;
-         width: 25%;
-         padding: 1em;
-      }
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1em;
+      background: #f0f8ff12;
+      width: 25%;
+      padding: 1em;
+      color: #fff;
+      font-family: sans-serif;
+   }
    .label {
       background-color: #000;
    }
@@ -50,8 +52,7 @@
      </div>
      <div id="feedInner">
         <div class="ui comments" id="feed">
-           Only works for Tweets sent in the last 7 days.<br>
-           Will only get a maximum of 100 replies.
+           Only works for Tweets sent in the last 7 days.
         </div>
      </div>
   </div>
@@ -60,16 +61,14 @@
       (document.getElementById('3d-graph'))
          .jsonUrl("force.json.php?id=<?php echo $twid; ?>")
          .backgroundColor("#000")
-        .nodeLabel('text')
-        .nodeColor(0xff0000)
-        .nodeVal('likes')
-       .linkOpacity(1)
-       .linkCurvature(.1)
-       .linkWidth(1)
-       .linkDirectionalArrowLength(5)
-       .linkDirectionalArrowColor(0x00ff00)
-       .linkDirectionalParticles(2)
-       .linkDirectionalParticleWidth(3);
+         .nodeLabel('text')
+         .nodeColor(0xff0000)
+         .nodeVal('likes')
+         .linkOpacity(1)
+         .linkCurvature(.1)
+         .linkWidth(1)
+         .linkDirectionalParticles(2)
+         .linkDirectionalParticleWidth(3);
         // .nodeAutoColorBy('group')
         // .linkThreeObjectExtend(true)
         // .linkThreeObject(link => {
