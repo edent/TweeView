@@ -9,6 +9,9 @@ use Coderjerk\ElephantBird\RecentSearch;
 
 function get_conversation($twid, $rt=false, $fav=false) {
 
+
+	// $twid = "1428285861528018945";
+	// $twid = "1428235307648966658";
 	//	Get the head of the conversation
 	$id = [$twid];
 

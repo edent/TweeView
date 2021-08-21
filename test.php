@@ -7,17 +7,10 @@ $dotenv->load();
 use Coderjerk\ElephantBird\TweetLookup;
 use Coderjerk\ElephantBird\RecentSearch;
 
-if(isset($_GET["id"])) {
-	$twid = $_GET["id"];
-} else {
-	//	Default conversation to view
-	$twid = "1427312962646298626";
-}
-
-$id = [$twid];
-
 $posts = array();
 $users = array();
+$references = array();
+
 
 function get_all($twid, $next=null) {
 
@@ -59,81 +52,99 @@ function get_all($twid, $next=null) {
 		$users[$user->id] = $user->profile_image_url;
 	}
 
-	// var_dump($results->meta);
-	// echo "{$result_count} \n";
-	// echo $results->meta->next_token . "\n";
 	if (100 == $result_count) {
 		get_all($twid, $results->meta->next_token);
 	} else {
-		// echo "Done!\n";
 	}
 }
 
-//	Get the head of the conversation
-$id = [$twid];
+function get_conversation($twid) {
+	//	Get the head of the conversation
+	$id = [$twid];
 
-$params = [
-	 'tweet.fields' => 'attachments,author_id,created_at,conversation_id,public_metrics',
-	 "expansions"   => "author_id",
-	 'user.fields'  => "username,profile_image_url",
-];
+	$params = [
+		 'tweet.fields' => 'attachments,author_id,created_at,conversation_id,public_metrics',
+		 "expansions"   => "author_id",
+		 'user.fields'  => "username,profile_image_url",
+	];
 
-$lookup = new TweetLookup;
-$root = $lookup->getTweetsById($id, $params);
+	$lookup = new TweetLookup;
+	$root = $lookup->getTweetsById($id, $params);
 
-//	Add root
-array_push($posts, $root->data[0]);
-array_push($users, $root->includes->users[0]);
+	//	Add root
+	array_push($posts, $root->data[0]);
+	array_push($users, $root->includes->users[0]);
+	//	Get conversation
+	get_all($id[0]);
 
-//	Get conversation
-get_all($id[0]);
+	//	Iterate through, generating the object needed
+	foreach ($posts as $post)
+	{
+		//	Get the data from the post
+		$id = $post->id;
+		$parent = $post->referenced_tweets[0]->id;
+		$text = $post->text;
+		// $bodyHTML = twitter_format($post);
+		// $username = $post['user']['screen_name'];
+		// $name = $post['user']['name'];
+		$avatar = $users[$post->author_id];
+		$time = strtotime($post->created_at)*1000;
 
-$nodes = array();
-$links = array();
-
-// add in dummy data for deleted nodes
-$all_ids = array();
-foreach ($posts as $post)
-{
-	array_push($all_ids, $post->id);
-}
-
-//	Iterate through, generating the object needed
-foreach ($posts as $post)
-{
-	$post_id = $post->id;
-	$reference_id = $post->referenced_tweets[0]->id;
-	$retweets = $post->public_metrics->retweet_count + $post->public_metrics->quote_count;
-	$likes = $post->public_metrics->like_count;
-
-	if (null != $post_id) {
-		$node = array('id' => $post_id,
-			"text"=> "<span class='label'>" .
-							"<img class='avatar' src='" . $users[$post->author_id] . "'>" .
-							$post->text .
-						"</span>",
-			"likes"    => $likes,
-			"retweets" => $retweets
-			);
-		array_push($nodes,$node);
+		//	Place the post in the array based on its ID
+		$references[$id] = array(
+			"tweet" => array(
+				"reply_to" => $parent,
+				// "images"   => array(),	//	TODO
+				// "username" => htmlspecialchars($username,ENT_QUOTES),
+				// "name"     => htmlspecialchars($name,ENT_QUOTES),
+				"bodyText" => html_entity_decode($text),
+				// "bodyHtml" => $bodyHTML,
+				"id"       => $id,
+				"avatar"   => $avatar,
+				// "avatar" => "https://eu.ui-avatars.com/api/?name={$id}",
+				"time"     => $time,
+				// "replies"  => 0,
+				// "retweets" => $retweets,
+				// "favs"     => $favs,
+			),
+			"children" => array()
+		);
 	}
 
-	$link = array('source' => $post_id, "target" => $reference_id);
-	array_push($links,$link);
+	//	Create the Tree
+	$tree = array();
 
-	//	If the node doesn't exist (it has been delete) add in a placeholder
-	if (null != $reference_id) {
-		if (array_search($reference_id, $all_ids) === false) {
-			$node = array('id' => $reference_id);
-			array_push($nodes,$node);
+	//	Iterate through the references, using `&` means this is a reference,
+	//	http://php.net/manual/en/language.references.php
+	foreach ($references as &$post)
+	{
+		$id = $post['tweet']['id'];
+		$parentId = $post['tweet']['reply_to'];
+
+		//	If this is the start of the conversation
+		if (!$parentId)
+		{
+			$tree[] =& $references[$id];
 		}
+		//	If this is a reply, add it as a child of its parent
+		else
+		{
+			$references[$parentId]['children'][] =& $post;
+		}
+		//	Clear the reference
+		unset($post);
 	}
+	//	Get rid of all the null values - otherwise things screw up
+	$tree = array_filter($tree);
+
+	//	Pretty Print so we can visually assess if this has worked
+	$output = json_encode($tree,JSON_PRETTY_PRINT);
+
+	// var_dump($output);
+
+	//	Trim the "[" and "]"
+	$output = substr($output, 1, -1);
+
+	//	Output into the JavaScript
+	return $output;
 }
-
-//	Remove null
-array_shift($links);
-
-$tree = array('nodes' => $nodes, "links" => $links);
-header('Content-Type: application/json');
-echo json_encode($tree,JSON_PRETTY_PRINT);
-die();

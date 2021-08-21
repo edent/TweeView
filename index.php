@@ -15,20 +15,6 @@ if(isset($_GET["id"])) {
 	$twid = "837429292476825600";
 }
 
-if(isset($_GET["rt"])) {
-	$showRT = true;
-} else {
-	//	Default conversation to view
-	$showRT = false;
-}
-
-if(isset($_GET["fav"])) {
-	$showFav = true;
-} else {
-	//	Default conversation to view
-	$showFav = false;
-}
-
 $error = "";
 if(isset($_GET["error"])) {
 	$error = "alert('That is not a valid Twitter status URL. It should look like https://twitter.com/edent/status/837429292476825600');";
@@ -196,15 +182,14 @@ if(isset($_GET["error"])) {
 				</div>
 				<div id="feedInner">
 					<div class="ui comments" id="feed">
-						Note - only works for Tweets sent in the last 7 days.<br>
-						Will only get a maximum of 100 replies.
+						Note - only works for Tweets sent in the last 7 days.
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<script>
-		var treeData = <?php echo get_conversation($twid, $showRT, $showFav); ?>;
+		var treeData = <?php echo get_conversation($twid); ?>;
 	</script>
 
 	<script>
