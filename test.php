@@ -1,150 +1,226 @@
+<!DOCTYPE html>
+<html>
 <?php
+// ini_set('display_errors',1);
+// ini_set('display_startup_errors',1);
+// error_reporting(E_ALL|E_STRICT);
 
-require_once (__DIR__ . '/vendor/autoload.php');
+//	Import the Functions
+require_once("testview.php");
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-use Coderjerk\ElephantBird\TweetLookup;
-use Coderjerk\ElephantBird\RecentSearch;
-
-$posts = array();
-$users = array();
-$references = array();
-
-
-function get_all($twid, $next=null) {
-
-	if (null != $next) {
-		$params = [
-		    'query'        => "conversation_id:{$twid}",
-			 'tweet.fields' => "in_reply_to_user_id,author_id,created_at,conversation_id,referenced_tweets,public_metrics",
-			 "expansions"   => "author_id",
-			 'user.fields'  => "username,profile_image_url",
-			 "next_token"   => $next,
-			 'max_results'  => 100
-		];
-	} else {
-		$params = [
-		    'query'        => "conversation_id:{$twid}",
-			 'tweet.fields' => "in_reply_to_user_id,author_id,created_at,conversation_id,referenced_tweets,public_metrics",
-			 "expansions"   => "author_id",
-			 'user.fields'  => "username,profile_image_url",
-			 'max_results'  => 100
-		];
-	}
-
-	$search = new RecentSearch;
-	$results = $search->RecentSearchRequest($params);
-
-	$result_count = $results->meta->result_count;
-
-
-	global $posts;
-	$post_objects = $results->data;
-	foreach ($post_objects as $post) {
-		array_push($posts, $post);
-	}
-
-	global $users;
-	$user_objects = $results->includes->users;
-
-	foreach ($user_objects as $user) {
-		$users[$user->id] = $user->profile_image_url;
-	}
-
-	if (100 == $result_count) {
-		get_all($twid, $results->meta->next_token);
-	} else {
-	}
+if(isset($_GET["id"])) {
+	$twid = $_GET["id"];
+} else {
+	//	Default conversation to view
+	$twid = "837429292476825600";
 }
 
-function get_conversation($twid) {
-	//	Get the head of the conversation
-	$id = [$twid];
-
-	$params = [
-		 'tweet.fields' => 'attachments,author_id,created_at,conversation_id,public_metrics',
-		 "expansions"   => "author_id",
-		 'user.fields'  => "username,profile_image_url",
-	];
-
-	$lookup = new TweetLookup;
-	$root = $lookup->getTweetsById($id, $params);
-
-	//	Add root
-	array_push($posts, $root->data[0]);
-	array_push($users, $root->includes->users[0]);
-	//	Get conversation
-	get_all($id[0]);
-
-	//	Iterate through, generating the object needed
-	foreach ($posts as $post)
-	{
-		//	Get the data from the post
-		$id = $post->id;
-		$parent = $post->referenced_tweets[0]->id;
-		$text = $post->text;
-		// $bodyHTML = twitter_format($post);
-		// $username = $post['user']['screen_name'];
-		// $name = $post['user']['name'];
-		$avatar = $users[$post->author_id];
-		$time = strtotime($post->created_at)*1000;
-
-		//	Place the post in the array based on its ID
-		$references[$id] = array(
-			"tweet" => array(
-				"reply_to" => $parent,
-				// "images"   => array(),	//	TODO
-				// "username" => htmlspecialchars($username,ENT_QUOTES),
-				// "name"     => htmlspecialchars($name,ENT_QUOTES),
-				"bodyText" => html_entity_decode($text),
-				// "bodyHtml" => $bodyHTML,
-				"id"       => $id,
-				"avatar"   => $avatar,
-				// "avatar" => "https://eu.ui-avatars.com/api/?name={$id}",
-				"time"     => $time,
-				// "replies"  => 0,
-				// "retweets" => $retweets,
-				// "favs"     => $favs,
-			),
-			"children" => array()
-		);
-	}
-
-	//	Create the Tree
-	$tree = array();
-
-	//	Iterate through the references, using `&` means this is a reference,
-	//	http://php.net/manual/en/language.references.php
-	foreach ($references as &$post)
-	{
-		$id = $post['tweet']['id'];
-		$parentId = $post['tweet']['reply_to'];
-
-		//	If this is the start of the conversation
-		if (!$parentId)
-		{
-			$tree[] =& $references[$id];
-		}
-		//	If this is a reply, add it as a child of its parent
-		else
-		{
-			$references[$parentId]['children'][] =& $post;
-		}
-		//	Clear the reference
-		unset($post);
-	}
-	//	Get rid of all the null values - otherwise things screw up
-	$tree = array_filter($tree);
-
-	//	Pretty Print so we can visually assess if this has worked
-	$output = json_encode($tree,JSON_PRETTY_PRINT);
-
-	// var_dump($output);
-
-	//	Trim the "[" and "]"
-	$output = substr($output, 1, -1);
-
-	//	Output into the JavaScript
-	return $output;
+$error = "";
+if(isset($_GET["error"])) {
+	$error = "alert('That is not a valid Twitter status URL. It should look like https://twitter.com/edent/status/837429292476825600');";
 }
+
+?>
+<head>
+	<title>TweeView</title>
+	<meta charset="UTF-8">
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="SVG2Bitmap.js"></script>
+	<script>
+	// Find the right method, call on correct element
+	function launchIntoFullscreen(element) {
+		if(element.requestFullscreen) {
+			element.requestFullscreen();
+		} else if(element.mozRequestFullScreen) {
+			element.mozRequestFullScreen();
+		} else if(element.webkitRequestFullscreen) {
+			element.webkitRequestFullscreen();
+		} else if(element.msRequestFullscreen) {
+			element.msRequestFullscreen();
+		}
+	}
+	</script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.8/semantic.min.css">
+	<style type="text/css">
+		body {
+			overflow-y: hidden;
+		}
+		a {
+			cursor: pointer;
+		}
+		#urlBox {
+			width: 100%;
+		}
+
+		/* Tree containers */
+		#tree {
+			width: 100%;
+			height: 100%;
+			background-color: #333;
+		}
+
+		#treeContainer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+		}
+
+		.selected rect {
+			stroke: #f55;
+			stroke-width: 4px;
+		}
+
+		/* Sidebar and info box styles. */
+		#sidebar {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: 25%;
+			background: #eee;
+			overflow-x: hidden;
+			height: min-content;
+		}
+
+		#infoBox {
+			padding: 1em;
+			background-color: #fff;
+			box-shadow: 0 1px 10px #ccc;
+			/*position: absolute;*/
+		}
+
+		/* Bottom Bar */
+		#bottom {
+			position: absolute;
+			bottom: 5px;
+			left: 5px;
+			color: #eee;
+			background-color: rgba(51, 51, 51, 0.8);
+		}
+
+		/* Feed-related elements */
+		#feedContainer {
+			overflow-y: auto;
+			/*position: absolute;*/
+			bottom: 0;
+			top: 0;
+			/*padding-top: 120px;*/
+			width: 100%;
+		}
+
+		#feedInner {
+			padding: 18px;
+		}
+
+		/* Tweet content styles */
+		.text {
+			white-space: pre-wrap;
+		}
+
+		.text a.twitter-atreply s {
+			text-decoration: none;
+		}
+
+		.text .Emoji,
+		.text .twitter-hashflag-container img {
+			height: 1.25em;
+			vertical-align: -0.3em;
+		}
+
+		.text .u-hidden {
+			display: none;
+		}
+
+		.text b {
+			font-weight: normal;
+		}
+
+		.u-hiddenVisually {
+			display: none;
+		}
+
+		.dropzone {
+			padding: 10px;
+			border: 1px dashed #aaf;
+			background-color: #f4f4f4;
+			text-align: center;
+			color: #888;
+		}
+
+		#download {
+			display: none !important;
+		}
+	</style>
+</head>
+<body>
+	<div id="page">
+		<div id="treeContainer">
+			<svg id="tree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			</svg>
+			<div id="bottom"> Colours represent reply times:
+				<span style="color: #FA5050; margin: 20px;">5&nbsp;minutes</span>
+				<span style="color: #E9FA50; margin: 20px;">10&nbsp;minutes</span>
+				<span style="color: #F5F1D3; margin: 20px;">1&nbsp;hour</span>
+				<span style="color: #47D8F5; margin: 20px;">3&nbsp;hours+</span>
+				<button id="fs" onclick="launchIntoFullscreen(document.documentElement);"><span style="color: #000000;">Go Full Screen</span></button>
+				<button id="dlSVG" onclick="downloadSVG();"><span style="color: #000000;">Download SVG</span></button>
+				<button id="dlPNG" onclick="downloadPNG();"><span style="color: #000000;">Download PNG</span></button>
+			</div>
+		</div>
+		<div id="sidebar">
+			<div id="feedContainer">
+				<div id="infoBox">
+					<p>Welcome to <a href="https://github.com/edent/TweeView">TweeView</a> - a Tree-based way to visualise Twitter conversations.</p>
+					<form action="importer.php" method="post">
+						<input type="url" name="url" id="urlBox" required placeholder="Paste a Twitter status URL here...">
+						<input type="hidden" name="page" value="index.php">
+						<button>Generate TweeView</button>
+					</form>
+					<img id="download"/>
+				</div>
+				<div id="feedInner">
+					<div class="ui comments" id="feed">
+						Note - only works for Tweets sent in the last 7 days.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var twid = <?php echo $twid; ?>;
+		var treeData = <?php echo get_conversation($twid); ?>;
+	</script>
+
+	<script>
+		//	Download Buttons
+
+		function downloadSVG(){
+			//	Adapted from http://stackoverflow.com/a/23218877/1127699
+			//	Get the SVG
+			var svgTree = document.getElementById("tree");
+			//	Turn it into valid XML
+			var serializer = new XMLSerializer();
+			var source = serializer.serializeToString(svgTree);
+			source = '<'+'?xml version="1.0" standalone="no"?>\r\n' + source;
+			//	SVG to URI
+			var svgData = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
+			window.open(svgData);
+		}
+
+		function downloadPNG(){
+			//	Set a temporary home for the image
+			var download = document.getElementById("download");
+			download.onload = function() {
+				window.open(encodeURI(download.src));
+				//	Delete the temporary image
+				download.src = "";
+			}
+			SVG2Bitmap(document.querySelector('svg'), download)
+		}
+	</script>
+	<script src="tweet_parser.js?cache=2"></script>
+
+</body>
+</html>

@@ -101,14 +101,7 @@ node.append("image")
 	.attr("xlink:href",function(d) { return d.data.tweet.avatar; })
 	.attr("height", "48px")
 	.attr("width", "48px")
-	.attr("transform","translate(-24 -24)")
-	.attr("onclick",function(d) {
-		if (d.parent != null) {
-			return "console.log('" + d.data.tweet.id + " - " +  d.parent.data.tweet.id  +"')";
-		} else {
-			return "console.log('" + d.data.tweet.id + "')";
-		}
-	});
+	.attr("transform","translate(-24 -24)");
 
 //	Scale and position everything correctly
 var svgWidth = (svg.node().getBBox().width);

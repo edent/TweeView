@@ -7,11 +7,56 @@ $dotenv->load();
 use Coderjerk\ElephantBird\TweetLookup;
 use Coderjerk\ElephantBird\RecentSearch;
 
-function get_conversation($twid, $rt=false, $fav=false) {
+$conversation_data = array();
+$conversation_includes = array();
 
+function get_all($twid, $next=null) {
+	global $conversation_data;
+	global $conversation_includes;
 
-	// $twid = "1428285861528018945";
-	// $twid = "1428235307648966658";
+	if (null != $next) {
+		$params = [
+		    'query'        => "conversation_id:{$twid}",
+			 'tweet.fields' => "in_reply_to_user_id,author_id,created_at,conversation_id,referenced_tweets,public_metrics",
+			 "expansions"   => "author_id",
+			 'user.fields'  => "username,profile_image_url",
+			 "next_token"   => $next,
+			 'max_results'  => 100
+		];
+	} else {
+		$params = [
+		    'query'        => "conversation_id:{$twid}",
+			 'tweet.fields' => "in_reply_to_user_id,author_id,created_at,conversation_id,referenced_tweets,public_metrics",
+			 "expansions"   => "author_id",
+			 'user.fields'  => "username,profile_image_url",
+			 'max_results'  => 100
+		];
+	}
+
+	$search = new RecentSearch;
+	$results = $search->RecentSearchRequest($params);
+
+	$data_objects = $results->data;
+	foreach ($data_objects as $datum) {
+		array_push($conversation_data, $datum);
+	}
+
+	$includes_objects = $results->includes->users;
+	foreach ($includes_objects as $included) {
+		array_push($conversation_includes, $included);
+	}
+
+	//	If there's a next token, there are more results. Can't rely on the number of results returned
+	if (null != $results->meta->next_token) {
+		get_all($twid, $results->meta->next_token);
+	} else {
+		// echo "Done!\n";
+	}
+}
+
+function get_conversation($twid) {
+	global $conversation_data;
+	global $conversation_includes;
 	//	Get the head of the conversation
 	$id = [$twid];
 
@@ -24,26 +69,16 @@ function get_conversation($twid, $rt=false, $fav=false) {
 	$lookup = new TweetLookup;
 	$root = $lookup->getTweetsById($id, $params);
 
-	// Get the conversation - minus the root of the tree
-	$params = [
-	    'query'        => "conversation_id:{$twid}",
-		 'tweet.fields' => "in_reply_to_user_id,author_id,created_at,conversation_id,referenced_tweets,public_metrics",
-		 "expansions"   => "author_id",
-		 'user.fields'  => "username,profile_image_url",
-		 'max_results'  => 100
-	];
-
-	$search = new RecentSearch;
-	$conversation = $search->RecentSearchRequest($params);
-
+	get_all($twid);
+	$conversation = array("data" => $conversation_data, "includes" => $conversation_includes);
 
 	$references = array();
 
-	$posts = $conversation->data;
+	$posts = $conversation["data"];
 	// Add root to start
 	array_unshift($posts , $root->data[0]);
 
-	$user_objects = $conversation->includes->users;
+	$user_objects = $conversation["includes"];
 	$root_user = $root->includes->users[0];
 	array_unshift($user_objects , $root_user);
 

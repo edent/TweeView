@@ -53,9 +53,9 @@
          .nodeVal('likes')
          .linkOpacity(1)
          .linkCurvature(0)
-         .linkWidth(2)
+         .linkWidth(3)
          .linkDirectionalParticles(2)
-         .linkDirectionalParticleWidth(4);
+         .linkDirectionalParticleWidth(6);
         // .nodeAutoColorBy('group')
         // .linkThreeObjectExtend(true)
         // .linkThreeObject(link => {
