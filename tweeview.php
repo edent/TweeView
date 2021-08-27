@@ -1,5 +1,5 @@
 <?php
-
+//	Set up all the libraries
 require_once (__DIR__ . '/vendor/autoload.php');
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -7,13 +7,16 @@ $dotenv->load();
 use Coderjerk\ElephantBird\TweetLookup;
 use Coderjerk\ElephantBird\RecentSearch;
 
+//	Arrays for holding the Twitter data
 $conversation_data = array();
 $conversation_includes = array();
 
+//	Get the conversation. Note: does NOT get the root node.
 function get_all($twid, $next=null) {
 	global $conversation_data;
 	global $conversation_includes;
 
+	//	If there are more replies to get, send the next_token so Twitter gets the next set of results
 	if (null != $next) {
 		$params = [
 		    'query'        => "conversation_id:{$twid}",
@@ -33,9 +36,11 @@ function get_all($twid, $next=null) {
 		];
 	}
 
+	//	Perform the search
 	$search = new RecentSearch;
 	$results = $search->RecentSearchRequest($params);
 
+	//	Add the responses to the temporary storage arrays
 	$data_objects = $results->data;
 	foreach ($data_objects as $datum) {
 		array_push($conversation_data, $datum);
@@ -54,50 +59,75 @@ function get_all($twid, $next=null) {
 	}
 }
 
-function get_conversation($twid) {
-	global $conversation_data;
-	global $conversation_includes;
-	//	Get the head of the conversation
-	$id = [$twid];
+//	Get the root node. This is the first Tweet in the conversation.
+function get_root($id) {
 
+	//	Set up parameters
 	$params = [
 	    'tweet.fields' => 'attachments,author_id,created_at,conversation_id',
 		 "expansions"   => "author_id",
 		 'user.fields'  => "username,profile_image_url",
 	];
 
+	//	Perform the search
 	$lookup = new TweetLookup;
-	$root = $lookup->getTweetsById($id, $params);
+	$root = $lookup->getTweetsById([$id], $params);
 
-	get_all($twid);
+	//	Get the ID of the Tweet. This may be different from the conversation ID
+	$this_id = $root->data[0]->id;
+	$con_id  = $root->data[0]->conversation_id;
+
+	//	If the conversation starts at another node, get that instead
+	if ($this_id != $con_id) {
+		return get_root($con_id);
+	} else {
+		return $root;
+	}
+}
+
+//	This function called from index.php
+function get_conversation($twid) {
+	global $conversation_data;
+	global $conversation_includes;
+
+	//	Get the head of the conversation
+	$root = get_root($twid);
+
+	//	Get the conversation ID
+	$conversation_id = $root->data[0]->conversation_id;
+
+	//	Get all the Tweets in the conversation
+	get_all($conversation_id);
 	$conversation = array("data" => $conversation_data, "includes" => $conversation_includes);
 
-	$references = array();
-
+	//	All the individual Tweets
 	$posts = $conversation["data"];
-	// Add root to start
+
+	// Add root Tweet to start of array
 	array_unshift($posts , $root->data[0]);
 
+	//	Get all the Includes
 	$user_objects = $conversation["includes"];
+
+	//	Add root Includes to start of array
 	$root_user = $root->includes->users[0];
 	array_unshift($user_objects , $root_user);
 
+	//	Get the users from the includes
 	$users = array();
-
 	foreach ($user_objects as $user) {
 		$users[$user->id] = $user->profile_image_url;
 	}
 
-	// var_dump($users);
+	//	Placeholder for references
+	$references = array();
 
 	//	Iterate through, generating the object needed
-	foreach ($posts as $post)
-	{
+	foreach ($posts as $post) {
 		//	Get the data from the post
 		$id = $post->id;
 		$parent = $post->referenced_tweets[0]->id;
 		$text = $post->text;
-		// $bodyHTML = twitter_format($post);
 		// $username = $post['user']['screen_name'];
 		// $name = $post['user']['name'];
 		$avatar = $users[$post->author_id];
@@ -120,7 +150,6 @@ function get_conversation($twid) {
 				// "bodyHtml" => $bodyHTML,
 				"id"       => $id,
 				"avatar"   => $avatar,
-				// "avatar" => "https://eu.ui-avatars.com/api/?name={$id}",
 				"time"     => $time,
 				// "replies"  => 0,
 				// "retweets" => $retweets,
@@ -141,30 +170,23 @@ function get_conversation($twid) {
 		$parentId = $post['tweet']['reply_to'];
 
 		//	If this is the start of the conversation
-		if (!$parentId)
-		{
+		if (!$parentId) {
 			$tree[] =& $references[$id];
 		}
 		//	If this is a reply, add it as a child of its parent
-		else
-		{
+		else {
 			$references[$parentId]['children'][] =& $post;
 		}
 		//	Clear the reference
 		unset($post);
 	}
+
 	//	Get rid of all the null values - otherwise things screw up
-	$tree = array_filter($tree);
+	$tree = array_filter($references[$conversation_id]);
 
 	//	Pretty Print so we can visually assess if this has worked
 	$output = json_encode($tree,JSON_PRETTY_PRINT);
 
-	// var_dump($output);
-
-	//	Trim the "[" and "]"
-	$output = substr($output, 1, -1);
-
 	//	Output into the JavaScript
-	// return "Treeverse.initializeForStaticData(document.getElementById('tweetContainer')," . $output .");";
 	return $output;
 }
