@@ -20,11 +20,11 @@ A Tree View For Tweets https://tweeview.ml/
 
 This was inspired by [Lucy Pepper](http://www.lucypepper.com/lp/) who pitched the concept of the "Monkey Deck" on fledgling social network App.net.
 
-<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/unkemptwomen/8080741422/in/photostream/" title="monkey.deck2"><img src="https://c1.staticflickr.com/9/8324/8080741422_267d0213c7_h.jpg" width="1600" height="666" alt="monkey.deck2"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/unkemptwomen/8080741422/in/photostream/" title="monkey.deck2"><img src="https://c1.staticflickr.com/9/8324/8080741422_267d0213c7_h.jpg" width="1600" height="666" alt="monkey.deck2"></a>
 
 From that, I built [HyperThread](https://shkspr.mobi/blog/2012/09/visualising-conversation-threads-in-hyperbolic-space/) - a viewer for App.net conversations.
 
-Recently, [Paul Butler](http://www.paulbutler.org/) produced [Treeverse](https://github.com/paulgb/Treeverse) - a wonderful [Chrome plugin](https://chrome.google.com/webstore/detail/treeverse/aahmjdadniahaicebomlagekkcnlcila) for visualising Twitter conversations.
+[Paul Butler](http://www.paulbutler.org/) produced [Treeverse](https://github.com/paulgb/Treeverse) - a wonderful [Chrome plugin](https://chrome.google.com/webstore/detail/treeverse/aahmjdadniahaicebomlagekkcnlcila) for visualising Twitter conversations.
 
 From there, I've built TweeView as a standalone webapp.
 
@@ -46,7 +46,6 @@ TweeView is heavily based on several amazing Open Source projects:
 * [ElephantBird](https://github.com/danieldevine/elephant-bird) - which is [MIT](https://github.com/danieldevine/elephant-bird/blob/main/LICENSE.md)
 * [phpDotEnv](https://github.com/vlucas/phpdotenv) - which is [BSD](https://github.com/vlucas/phpdotenv/blob/master/LICENSE)
 * [d3js](https://d3js.org/) - which is [Copyright Mike Bostock](https://github.com/d3/d3/blob/master/LICENSE)
-* [Semantic UI](https://github.com/semantic-org/semantic-ui/) - which is [MIT](https://github.com/Semantic-Org/Semantic-UI/blob/master/LICENSE.md)
 * Some of the functions for dealing with [TWARC](https://github.com/DocNow/twarc/) (Twitter Archive) may be [CC0](https://github.com/DocNow/twarc/blob/master/LICENSE)
 * [SVG2Bitmap](https://github.com/Kaiido/SVG2Bitmap) - which is MIT
 * Snippets from [StackOverflow](https://stackexchange.com/legal) - which are [CC-BY-SA](https://creativecommons.org/licenses/by-sa/3.0/)
