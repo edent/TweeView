@@ -1,7 +1,38 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <style> body { margin: 0; } </style>
+   <style>
+      body {
+         margin: 0;
+         overflow-x: hidden;
+         overflow-y: hidden;
+         font-family: sans;
+      }
+      a {
+         color: lightblue;
+      }
+      #feedContainer {
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         font-size: 1em;
+         background: #f0f8ff12;
+         width: 25%;
+         padding: 1em;
+         color: #fff;
+         font-family: sans-serif;
+      }
+      #hide-button {
+         float: right;
+      }
+      .label {
+         background-color: #000;
+      }
+
+      .avatar {
+         float: left;
+      }
+   </style>
 
   <script src="https://unpkg.com/three"></script>
   <script src="https://unpkg.com/three/examples/js/controls/TrackballControls.js"></script>
@@ -18,6 +49,26 @@ if(isset($_GET["id"])) {
 ?>
 <body>
   <div id="3d-graph"></div>
+  <div id="feedContainer">
+     <div id="infoBox">
+        <div id="infoBox">
+           <p>Welcome to <a href="https://github.com/edent/TweeView">TweeView</a> - a Tree-based way to visualise Twitter conversations.</p>
+           <form action="importer.php" method="post">
+              <input type="url" name="url" id="urlBox" required placeholder="Paste a Twitter status URL here...">
+              <input type="hidden" name="page" value="force.php">
+              <button>Generate TweeView</button>
+           </form>
+           <p>Made in 🇬🇧 by <a href="https://twitter.com/edent">@edent</a></p>
+           <img id="download"/>
+        </div>
+        <div id="feedInner">
+           <div class="ui comments" id="feed">
+              Note - only works for Tweets sent in the last 7 days.
+           </div>
+        </div>
+     </div>
+     <button id="hide-button" onclick="this.parentNode.style.display = 'none';">Hide</button>
+  </div>
 
   <script>
     const N = 100;
