@@ -1,5 +1,5 @@
 <?php
-
+//	Set up all the libraries
 require_once (__DIR__ . '/vendor/autoload.php');
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -15,16 +15,19 @@ if(isset($_GET["id"])) {
 	$twid = "1427312962646298626";
 }
 
-$id = [$twid];
-
-//	Set up the arrays
+//	Arrays for holding the Twitter data
 $posts = array();
 $users = array();
 $nodes = array();
 $links = array();
+$conversation_data = array();
+$conversation_includes = array();
 
 function get_all($twid, $next=null) {
+	global $conversation_data;
+	global $conversation_includes;
 
+	//	If there are more replies to get, send the next_token so Twitter gets the next set of results
 	if (null != $next) {
 		$params = [
 		    'query'        => "conversation_id:{$twid}",
@@ -44,22 +47,19 @@ function get_all($twid, $next=null) {
 		];
 	}
 
+	//	Perform the search
 	$search = new RecentSearch;
 	$results = $search->RecentSearchRequest($params);
 
-	$result_count = $results->meta->result_count;
-
-	global $posts;
-	$post_objects = $results->data;
-	foreach ($post_objects as $post) {
-		array_push($posts, $post);
+	//	Add the responses to the temporary storage arrays
+	$data_objects = $results->data;
+	foreach ($data_objects as $datum) {
+		array_push($conversation_data, $datum);
 	}
 
-	global $users;
-	$user_objects = $results->includes->users;
-
-	foreach ($user_objects as $user) {
-		$users[$user->id] = $user->profile_image_url;
+	$includes_objects = $results->includes->users;
+	foreach ($includes_objects as $included) {
+		array_push($conversation_includes, $included);
 	}
 
 	//	If there's a next token, there are more results. Can't rely on the number of results returned
@@ -70,24 +70,60 @@ function get_all($twid, $next=null) {
 	}
 }
 
+//	Get the root node. This is the first Tweet in the conversation.
+function get_root($id) {
+
+	//	Set up parameters
+	$params = [
+	    'tweet.fields' => 'attachments,author_id,created_at,conversation_id,public_metrics',
+		 "expansions"   => "author_id",
+		 'user.fields'  => "username,profile_image_url",
+	];
+
+	//	Perform the search
+	$lookup = new TweetLookup;
+	$root = $lookup->getTweetsById([$id], $params);
+
+	//	Get the ID of the Tweet. This may be different from the conversation ID
+	$this_id = $root->data[0]->id;
+	$con_id  = $root->data[0]->conversation_id;
+
+	//	If the conversation starts at another node, get that instead
+	if ($this_id != $con_id) {
+		return get_root($con_id);
+	} else {
+		return $root;
+	}
+}
+
 //	Get the head of the conversation
-$id = [$twid];
+$root = get_root($twid);
 
-$params = [
-	 'tweet.fields' => 'attachments,author_id,created_at,conversation_id,public_metrics',
-	 "expansions"   => "author_id",
-	 'user.fields'  => "username,profile_image_url",
-];
+//	Get the conversation ID
+$conversation_id = $root->data[0]->conversation_id;
 
-$lookup = new TweetLookup;
-$root = $lookup->getTweetsById($id, $params);
+//	Get all the Tweets in the conversation
+get_all($conversation_id);
+$conversation = array("data" => $conversation_data, "includes" => $conversation_includes);
 
-//	Add root
-array_push($posts, $root->data[0]);
-array_push($users, $root->includes->users[0]);
+//	All the individual Tweets
+$posts = $conversation["data"];
 
-//	Get conversation
-get_all($id[0]);
+// Add root Tweet to start of array
+array_unshift($posts , $root->data[0]);
+
+//	Get all the Includes
+$user_objects = $conversation["includes"];
+
+//	Add root Includes to start of array
+$root_user = $root->includes->users[0];
+array_unshift($users, $root_user);
+
+//	Get the users from the includes
+$users = array();
+foreach ($user_objects as $user) {
+	$users[$user->id] = $user->profile_image_url;
+}
 
 // add in dummy data for deleted nodes
 $all_ids = array();
