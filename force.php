@@ -3,11 +3,10 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/three"></script>
-  <script src="//unpkg.com/three/examples/js/controls/TrackballControls.js"></script>
+  <script src="https://unpkg.com/three"></script>
+  <script src="https://unpkg.com/three/examples/js/controls/TrackballControls.js"></script>
 
-  <script src="//unpkg.com/three-forcegraph"></script>
-<!-- https://vasturiano.github.io/three-forcegraph/example/basic/ -->
+  <script src="https://unpkg.com/three-forcegraph"></script>
 </head>
 <?php
 if(isset($_GET["id"])) {
