@@ -7,7 +7,9 @@ $url = trim($url);
 //	https://twitter.com/edent/status/837429292476825600
 
 $page = $_POST["page"];
-
+if ("index.php" == $page) {
+	$page = "/";
+}
 //	Is this a URL?
 if (filter_var($url, FILTER_VALIDATE_URL) === false) {
 	var_dump($_POST);

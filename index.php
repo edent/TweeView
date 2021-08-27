@@ -40,10 +40,10 @@ if(isset($_GET["error"])) {
 		}
 	}
 	</script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.8/semantic.min.css">
 	<style type="text/css">
 		body {
 			overflow-y: hidden;
+			font-family: sans;
 		}
 		a {
 			cursor: pointer;
@@ -79,15 +79,15 @@ if(isset($_GET["error"])) {
 			right: 0;
 			bottom: 0;
 			width: 25%;
-			background: #eee;
+			background: #eeeeeeb0;
 			overflow-x: hidden;
 			height: min-content;
 		}
 
 		#infoBox {
 			padding: 1em;
-			background-color: #fff;
-			box-shadow: 0 1px 10px #ccc;
+			background-color: #ffffff7d;
+			/*! box-shadow: 0 1px 10px #ccc0; */
 			/*position: absolute;*/
 		}
 
