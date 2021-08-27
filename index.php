@@ -85,10 +85,12 @@ if(isset($_GET["error"])) {
 		}
 
 		#infoBox {
-			padding: 1em;
+			padding: .5em;
 			background-color: #ffffff7d;
-			/*! box-shadow: 0 1px 10px #ccc0; */
-			/*position: absolute;*/
+		}
+
+		#hide-button {
+			float: right;
 		}
 
 		/* Bottom Bar */
@@ -103,10 +105,8 @@ if(isset($_GET["error"])) {
 		/* Feed-related elements */
 		#feedContainer {
 			overflow-y: auto;
-			/*position: absolute;*/
 			bottom: 0;
 			top: 0;
-			/*padding-top: 120px;*/
 			width: 100%;
 		}
 
@@ -178,6 +178,7 @@ if(isset($_GET["error"])) {
 						<input type="hidden" name="page" value="index.php">
 						<button>Generate TweeView</button>
 					</form>
+					<p>Made in 🇬🇧 by <a href="https://twitter.com/edent">@edent</a></p>
 					<img id="download"/>
 				</div>
 				<div id="feedInner">
@@ -186,6 +187,7 @@ if(isset($_GET["error"])) {
 					</div>
 				</div>
 			</div>
+			<button id="hide-button" onclick="this.parentNode.style.display = 'none';">Hide</button>
 		</div>
 	</div>
 	<script>
