@@ -34,10 +34,10 @@
       }
    </style>
 
-  <script src="https://unpkg.com/three"></script>
-  <script src="https://unpkg.com/three/examples/js/controls/TrackballControls.js"></script>
+  <script src="/js/three.js"></script>
+  <script src="/js/TrackballControls.js"></script>
 
-  <script src="https://unpkg.com/three-forcegraph"></script>
+  <script src="/js/three-forcegraph.min.js"></script>
 </head>
 <?php
 if(isset($_GET["id"])) {

@@ -34,10 +34,9 @@
       }
    </style>
 
-   <script src="https://unpkg.com/three"></script>
-   <script src="https://unpkg.com/three-spritetext"></script>
+   <script src="/js/three.js"></script>
 
-   <script src="https://unpkg.com/3d-force-graph"></script>
+   <script src="/js/3d-force-graph.min.js"></script>
 
 <?php
    if(isset($_GET["id"])) {

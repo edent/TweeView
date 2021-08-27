@@ -24,8 +24,8 @@ if(isset($_GET["error"])) {
 <head>
 	<title>TweeView</title>
 	<meta charset="UTF-8">
-	<script src="https://d3js.org/d3.v4.min.js"></script>
-	<script src="SVG2Bitmap.js"></script>
+	<script src="/js//d3.v4.min.js"></script>
+	<script src="/js/SVG2Bitmap.js"></script>
 	<script>
 	// Find the right method, call on correct element
 	function launchIntoFullscreen(element) {
@@ -221,7 +221,7 @@ if(isset($_GET["error"])) {
 			SVG2Bitmap(document.querySelector('svg'), download)
 		}
 	</script>
-	<script src="tweet_parser.js?cache=2"></script>
+	<script src="/js/tweet_parser.js"></script>
 
 </body>
 </html>
