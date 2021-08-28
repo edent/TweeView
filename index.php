@@ -45,6 +45,9 @@ if(isset($_GET["error"])) {
 		a {
 			cursor: pointer;
 		}
+		path {
+			stroke-width: 8px;
+		}
 		#urlBox {
 			width: 100%;
 		}
