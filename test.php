@@ -197,16 +197,17 @@ if(isset($_GET["error"])) {
 		//	Download Buttons
 
 		function downloadSVG(){
-			//	Adapted from http://stackoverflow.com/a/23218877/1127699
-			//	Get the SVG
-			var svgTree = document.getElementById("tree");
-			//	Turn it into valid XML
-			var serializer = new XMLSerializer();
-			var source = serializer.serializeToString(svgTree);
-			source = '<'+'?xml version="1.0" standalone="no"?>\r\n' + source;
-			//	SVG to URI
-			var svgData = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
-			window.open(svgData);
+			//	https://gist.github.com/benjymous/eb690239ccd2789b4c1ae3331241437c
+			svgData = document.getElementById("tree").outerHTML
+			svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' })
+			filename = "twee.svg"
+			fileUrl = URL.createObjectURL(svgBlob)
+			downloadLink = document.createElement('a')
+			downloadLink.href = fileUrl
+			downloadLink.download = filename
+			document.body.appendChild(downloadLink)
+			downloadLink.click()
+			document.body.removeChild(downloadLink)
 		}
 
 		function downloadPNG(){
