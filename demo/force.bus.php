@@ -1,13 +1,44 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <style> body { margin: 0; } </style>
+   <style>
+      body {
+         margin: 0;
+         overflow-x: hidden;
+         overflow-y: hidden;
+         font-family: sans;
+         background-color: #aaa;
+      }
+      a {
+         color: lightblue;
+      }
+      #feedContainer {
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         font-size: 1em;
+         background: #f0f8ff12;
+         width: 25%;
+         padding: 1em;
+         color: #fff;
+         font-family: sans-serif;
+      }
+      #hide-button {
+         float: right;
+      }
+      .label {
+         background-color: #000;
+      }
 
-  <script src="//unpkg.com/three"></script>
-  <script src="//unpkg.com/three/examples/js/controls/TrackballControls.js"></script>
+      .avatar {
+         float: left;
+      }
+   </style>
 
-  <script src="//unpkg.com/three-forcegraph"></script>
-<!-- https://vasturiano.github.io/three-forcegraph/example/basic/ -->
+  <script src="/js/three.js"></script>
+  <script src="/js/TrackballControls.js"></script>
+
+  <script src="/js/three-forcegraph.min.js"></script>
 </head>
 <body>
   <div id="3d-graph"></div>
@@ -17,12 +48,13 @@
 
     //   Load from JSON
     const Graph = new ThreeForceGraph()
-      .jsonUrl("bus3d.json")
+      .jsonUrl("3d.bus.json")
       .nodeColor(0x0000ff)
+      .nodeRelSize(8)
       .linkOpacity(1)
       .linkCurvature(0)
-      .linkWidth(2)
-      .linkDirectionalArrowLength(6)
+      .linkWidth(3)
+      .linkDirectionalArrowLength(15)
       .linkDirectionalArrowColor(0x00ff00);
     // Setup renderer
     const renderer = new THREE.WebGLRenderer();

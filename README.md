@@ -8,6 +8,17 @@ A Tree View For Tweets https://tweeview.ml/
 
 [Watch on YouTube](https://youtu.be/-_WYtn6rlfM)
 
+##	Demos
+
+* [Small 2D](https://tweeview.ml/demo/small.php)
+* [Small 3D](https://tweeview.ml/demo/force.small.php)
+* [Complex 2D](https://tweeview.ml/demo/complex.php)
+* [Complex 3D](https://tweeview.ml/demo/force.complex.php)
+* [Complex 4D](https://tweeview.ml/demo/3d.complex.php)
+* [Ridiculous 3D](https://tweeview.ml/demo/force.bus.php)
+* [Ridiculous 4D](https://tweeview.ml/demo/3d.bus.php)
+* [Augmented Reality 3D](https://tweeview.ml/ar/ar.php)
+
 ## Requirements
 
 * Twitter **V2** API Bearer Token

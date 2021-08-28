@@ -7,6 +7,7 @@
          overflow-x: hidden;
          overflow-y: hidden;
          font-family: sans;
+         background-color: #aaa;
       }
       a {
          color: lightblue;
@@ -77,10 +78,11 @@ if(isset($_GET["id"])) {
     const Graph = new ThreeForceGraph()
       .jsonUrl("force.json.php?id=<?php echo $twid; ?>")
       .nodeColor(0x0000ff)
+      .nodeRelSize(8)
       .linkOpacity(1)
-      .linkCurvature(.1)
-      .linkWidth(1)
-      .linkDirectionalArrowLength(5)
+      .linkCurvature(0)
+      .linkWidth(3)
+      .linkDirectionalArrowLength(15)
       .linkDirectionalArrowColor(0x00ff00);
     // Setup renderer
     const renderer = new THREE.WebGLRenderer();
