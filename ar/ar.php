@@ -12,7 +12,7 @@
   <script>
   const Graph = ForceGraphAR()
     (document.getElementById('3d-graph'))
-      .jsonUrl('/demo/small.json')
+      .jsonUrl('/demo/force.complex.json')
       .glScale(160)
       .yOffset(1)
       .nodeRelSize(10)
