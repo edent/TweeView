@@ -14,12 +14,16 @@
     (document.getElementById('3d-graph'))
       .jsonUrl('/demo/small.json')
       .glScale(160)
-      .yOffset(1.8)
-      .nodeAutoColorBy('group')
-      .nodeRelSize(5)
-      .linkWidth(1.5)
+      .yOffset(1)
+      .nodeRelSize(10)
       .nodeOpacity(0.9)
-      .linkOpacity(0.3)
-      .linkColor(() => 'darkgrey');
+      .linkOpacity(0.9)
+      .nodeColor(0x0000ff)
+      .linkOpacity(1)
+      .linkCurvature(0)
+      .linkWidth(2)
+      .linkDirectionalArrowLength(6)
+      .linkDirectionalArrowColor(0x00ff00)
+      .linkColor(() => 'red');
   </script>
 </body>

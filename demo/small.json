@@ -1,272 +1,316 @@
 {
-    "nodes": [
+    "tweet": {
+        "reply_to": null,
+        "bodyText": "if ($price <= 0.6) {\n   startCharger();\n}\n\nThat's a cool feature - but let's not pretend it is AI. It is barely an algorithm! https:\/\/t.co\/bNkCjkkfgL",
+        "id": "1430862931655340033",
+        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+        "time": 1629979281000
+    },
+    "children": [
         {
-            "id": "1430862931655340033",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg'>if ($price &lt;= 0.6) {\n   startCharger();\n}\n\nThat's a cool feature - but let's not pretend it is AI. It is barely an algorithm! https:\/\/t.co\/bNkCjkkfgL<\/span>",
-            "likes": 50,
-            "retweets": 7
+            "tweet": {
+                "reply_to": "1430862931655340033",
+                "bodyText": "@edent Is it AI if you move the 0.6 into Tensorflow ?",
+                "id": "1430937176683032581",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1420738134942175244\/qnSlmZzJ_normal.jpg",
+                "time": 1629996983000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1430937176683032581",
+                        "bodyText": "@embedded_iot @edent Perhaps we need to build a classifier to answer that question for us.",
+                        "id": "1430937655475384328",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/686943510512140289\/aEEU1KFD_normal.jpg",
+                        "time": 1629997097000
+                    },
+                    "children": []
+                }
+            ]
         },
         {
-            "id": "1430937655475384328",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/686943510512140289\/aEEU1KFD_normal.jpg'>@embedded_iot @edent Perhaps we need to build a classifier to answer that question for us.<\/span>",
-            "likes": 1,
-            "retweets": 0
+            "tweet": {
+                "reply_to": "1430862931655340033",
+                "bodyText": "@edent @neil_neilzone Is AI the new 'secured in the blockchain'?",
+                "id": "1430880632595525636",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/893116631945166848\/Rbm0Kr9S_normal.jpg",
+                "time": 1629983501000
+            },
+            "children": []
         },
         {
-            "id": "1430937176683032581",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1420738134942175244\/qnSlmZzJ_normal.jpg'>@edent Is it AI if you move the 0.6 into Tensorflow ?<\/span>",
-            "likes": 0,
-            "retweets": 0
+            "tweet": {
+                "reply_to": "1430862931655340033",
+                "bodyText": "@edent @neil_neilzone I\u2019m not even sure this qualifies as I?  So you tell it when you want it charged and it knows how much charge there is and does it\u2019s best to look for a rate below X when there is still enough time to complete charging. An intro to programming student could write this \u201cAI\u201d",
+                "id": "1430871774049181698",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1317427557621485569\/8dfU9HAn_normal.jpg",
+                "time": 1629981389000
+            },
+            "children": []
         },
         {
-            "id": "1430890708869603330",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1387386950416486404\/ZJh42vA-_normal.jpg'>@frankieroberto @edent I think this is it. Finding patterns of usage together with patterns of price dips to find the cheapest overall cost per mile.<\/span>",
-            "likes": 1,
-            "retweets": 0
+            "tweet": {
+                "reply_to": "1430862931655340033",
+                "bodyText": "@edent They should make meters with 3 tails - similar to economy 7 meters; 1 tail is always on, 1 tail turns on when price goes low, and 1 tail goes off when prices goes high",
+                "id": "1430869428414132232",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg",
+                "time": 1629980830000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1430869428414132232",
+                        "bodyText": "@chaz_6 @edent Different devices may need different price thresholds - seems more sensible for each device to have pricing data to make its own decisions on. (e.g. over some kind of power-line network, so every device would have access to the pricing of the supply they are connected to)",
+                        "id": "1430872134067396609",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1150719375118348288\/m55E1qgR_normal.jpg",
+                        "time": 1629981475000
+                    },
+                    "children": []
+                },
+                {
+                    "tweet": {
+                        "reply_to": "1430869428414132232",
+                        "bodyText": "@chaz_6 that's literally what Smart Meters have. ACLS https:\/\/t.co\/LwzKEmWAbY",
+                        "id": "1430869966346194946",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+                        "time": 1629980958000
+                    },
+                    "children": [
+                        {
+                            "tweet": {
+                                "reply_to": "1430869966346194946",
+                                "bodyText": "@edent OK, now I understand, ACLS = auxiliary load control system that \/can\/ be built into meters, but this is only a second tail, not the third that I envison.",
+                                "id": "1430871373358960643",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg",
+                                "time": 1629981294000
+                            },
+                            "children": [
+                                {
+                                    "tweet": {
+                                        "reply_to": "1430871373358960643",
+                                        "bodyText": "@chaz_6 @edent In principle you can add the same functionality to existing meters using a HAN connected ALCS, also described in that document. Unfortunately pairing to the HAN is controlled by the utility, so there's no incentive to develop third party products.",
+                                        "id": "1430875885100544006",
+                                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1952884008\/new-logo-large_normal.gif",
+                                        "time": 1629982370000
+                                    },
+                                    "children": [
+                                        {
+                                            "tweet": {
+                                                "reply_to": "1430875885100544006",
+                                                "bodyText": "@chaz_6 @edent The upshot to this is that if you want your own load switch that cuts in\/out according to energy mix or cost, the only viable approach is to bypass the smart meter system entirely and have an independent feed with this information taken directly from the upstream suppliers.",
+                                                "id": "1430876936520323078",
+                                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1952884008\/new-logo-large_normal.gif",
+                                                "time": 1629982620000
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "tweet": {
+                                                "reply_to": "1430875885100544006",
+                                                "bodyText": "@zynaptic @edent Yes that is my big problem, it is a closed ecosystem. Electricity customers should have access to an API, either through their supplier, or a partner organization. I hope eventually to be able to go completely off-grid.",
+                                                "id": "1430876381039185936",
+                                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg",
+                                                "time": 1629982488000
+                                            },
+                                            "children": [
+                                                {
+                                                    "tweet": {
+                                                        "reply_to": "1430876381039185936",
+                                                        "bodyText": "@chaz_6 @edent The upstream information is available if you work hard enough for it (see @myGridGB or https:\/\/t.co\/lFapJ3rDjR), but needs to be converted into a form that can easily be consumed by load control devices. Tried funding it, but got knockback as utilities 'should already do that.",
+                                                        "id": "1430881300664160258",
+                                                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1952884008\/new-logo-large_normal.gif",
+                                                        "time": 1629983661000
+                                                    },
+                                                    "children": [
+                                                        {
+                                                            "tweet": {
+                                                                "reply_to": "1430881300664160258",
+                                                                "bodyText": "@zynaptic @edent @myGridGB Thank you for trying! I am disappointed you got nowhere. This would be a good idea for a pet project.",
+                                                                "id": "1430881852760469506",
+                                                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg",
+                                                                "time": 1629983792000
+                                                            },
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tweet": {
+                                        "reply_to": "1430871373358960643",
+                                        "bodyText": "@edent So it could only be used to *either* turn on when price is low, *or* turn off when price is high.",
+                                        "id": "1430871597192253445",
+                                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg",
+                                        "time": 1629981347000
+                                    },
+                                    "children": [
+                                        {
+                                            "tweet": {
+                                                "reply_to": "1430871597192253445",
+                                                "bodyText": "@edent I definitely do not trust a smart meter to interface with my home electronics. When it eventually gets hacked it could cause chaos, so I would much prefer a simple 3-tail meter so the demarcation between my supplier and my household is clear.",
+                                                "id": "1430873603457826819",
+                                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg",
+                                                "time": 1629981826000
+                                            },
+                                            "children": [
+                                                {
+                                                    "tweet": {
+                                                        "reply_to": "1430873603457826819",
+                                                        "bodyText": "@edent One potential option is for there to be a standard (SOAP\/REST\/etc) API that every electricity customer has access to to respond to DSR events so they are not tied into anything proprietary or closed.",
+                                                        "id": "1430874014793281536",
+                                                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg",
+                                                        "time": 1629981924000
+                                                    },
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tweet": {
+                                                "reply_to": "1430871597192253445",
+                                                "bodyText": "@chaz_6 @edent We have a smart meter which is additionally connected to a heating contactor which is only turned on overnight for our electric water heater.",
+                                                "id": "1430872417254117378",
+                                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1326639534528933888\/SP13z2Rj_normal.jpg",
+                                                "time": 1629981543000
+                                            },
+                                            "children": [
+                                                {
+                                                    "tweet": {
+                                                        "reply_to": "1430872417254117378",
+                                                        "bodyText": "@sigwinch28 @edent That is similar to an economy meter, in that a tail is energised at a lower rate. It is just missing a third tail which is de-energeised when the rate is high.",
+                                                        "id": "1430872684469145602",
+                                                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg",
+                                                        "time": 1629981606000
+                                                    },
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "tweet": {
+                                "reply_to": "1430869966346194946",
+                                "bodyText": "@edent I am pretty sure smart meters only have a single always-on tail.",
+                                "id": "1430870961516077056",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg",
+                                "time": 1629981196000
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tweet": {
+                        "reply_to": "1430869428414132232",
+                        "bodyText": "@edent Just to clarify, most residential services in the UK are single phase so only have 1 phase tail - as opposed to 3-phase meters which already have 3.",
+                        "id": "1430869819079987202",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg",
+                        "time": 1629980923000
+                    },
+                    "children": []
+                }
+            ]
         },
         {
-            "id": "1430881852760469506",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg'>@zynaptic @edent @myGridGB Thank you for trying! I am disappointed you got nowhere. This would be a good idea for a pet project.<\/span>",
-            "likes": 0,
-            "retweets": 0
+            "tweet": {
+                "reply_to": "1430862931655340033",
+                "bodyText": "@edent Gradually, \"AI\" is just becoming a synonym for \"technology\" or \"computers\".",
+                "id": "1430868697581764610",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1187488417\/02A_3832_normal.png",
+                "time": 1629980656000
+            },
+            "children": []
         },
         {
-            "id": "1430881300664160258",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1952884008\/new-logo-large_normal.gif'>@chaz_6 @edent The upstream information is available if you work hard enough for it (see @myGridGB or https:\/\/t.co\/lFapJ3rDjR), but needs to be converted into a form that can easily be consumed by load control devices. Tried funding it, but got knockback as utilities 'should already do that.<\/span>",
-            "likes": 1,
-            "retweets": 0
+            "tweet": {
+                "reply_to": "1430862931655340033",
+                "bodyText": "@edent Presumably the AI is used to predict the prices in advance, so that you don\u2019t end up with an uncharged car?",
+                "id": "1430867689585713155",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1200717039092092928\/v2m96buM_normal.jpg",
+                "time": 1629980416000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1430867689585713155",
+                        "bodyText": "@frankieroberto @edent They actually release the variable tariff charges at 4:30pm for the next day. I have it email me and I have some IFTTT recipes based on the 30 minute price.",
+                        "id": "1431127693416931328",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1100435449825411073\/CzuQ1Z91_normal.jpg",
+                        "time": 1630042405000
+                    },
+                    "children": [
+                        {
+                            "tweet": {
+                                "reply_to": "1431127693416931328",
+                                "bodyText": "@colemanmaak @edent Ah, interesting! Does that match how wholesale prices are calculated, or are those set closer to the time?",
+                                "id": "1431143503908769792",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1200717039092092928\/v2m96buM_normal.jpg",
+                                "time": 1630046175000
+                            },
+                            "children": [
+                                {
+                                    "tweet": {
+                                        "reply_to": "1431143503908769792",
+                                        "bodyText": "@frankieroberto @edent It\u2019s based on trends and other factors from what I can see. This is a screenshot of today\u2019s unit rates per 30 minutes. https:\/\/t.co\/dl8ILMLTZa",
+                                        "id": "1431143828115841025",
+                                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1100435449825411073\/CzuQ1Z91_normal.jpg",
+                                        "time": 1630046252000
+                                    },
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tweet": {
+                        "reply_to": "1430867689585713155",
+                        "bodyText": "@frankieroberto @edent I think this is it. Finding patterns of usage together with patterns of price dips to find the cheapest overall cost per mile.",
+                        "id": "1430890708869603330",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1387386950416486404\/ZJh42vA-_normal.jpg",
+                        "time": 1629985904000
+                    },
+                    "children": []
+                }
+            ]
         },
         {
-            "id": "1430880632595525636",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/893116631945166848\/Rbm0Kr9S_normal.jpg'>@edent @neil_neilzone Is AI the new 'secured in the blockchain'?<\/span>",
-            "likes": 0,
-            "retweets": 0
-        },
-        {
-            "id": "1430876936520323078",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1952884008\/new-logo-large_normal.gif'>@chaz_6 @edent The upshot to this is that if you want your own load switch that cuts in\/out according to energy mix or cost, the only viable approach is to bypass the smart meter system entirely and have an independent feed with this information taken directly from the upstream suppliers.<\/span>",
-            "likes": 1,
-            "retweets": 0
-        },
-        {
-            "id": "1430876381039185936",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg'>@zynaptic @edent Yes that is my big problem, it is a closed ecosystem. Electricity customers should have access to an API, either through their supplier, or a partner organization. I hope eventually to be able to go completely off-grid.<\/span>",
-            "likes": 0,
-            "retweets": 0
-        },
-        {
-            "id": "1430875885100544006",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1952884008\/new-logo-large_normal.gif'>@chaz_6 @edent In principle you can add the same functionality to existing meters using a HAN connected ALCS, also described in that document. Unfortunately pairing to the HAN is controlled by the utility, so there's no incentive to develop third party products.<\/span>",
-            "likes": 1,
-            "retweets": 0
-        },
-        {
-            "id": "1430874014793281536",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg'>@edent One potential option is for there to be a standard (SOAP\/REST\/etc) API that every electricity customer has access to to respond to DSR events so they are not tied into anything proprietary or closed.<\/span>",
-            "likes": 0,
-            "retweets": 0
-        },
-        {
-            "id": "1430873603457826819",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg'>@edent I definitely do not trust a smart meter to interface with my home electronics. When it eventually gets hacked it could cause chaos, so I would much prefer a simple 3-tail meter so the demarcation between my supplier and my household is clear.<\/span>",
-            "likes": 0,
-            "retweets": 0
-        },
-        {
-            "id": "1430872684469145602",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg'>@sigwinch28 @edent That is similar to an economy meter, in that a tail is energised at a lower rate. It is just missing a third tail which is de-energeised when the rate is high.<\/span>",
-            "likes": 1,
-            "retweets": 0
-        },
-        {
-            "id": "1430872417254117378",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1326639534528933888\/SP13z2Rj_normal.jpg'>@chaz_6 @edent We have a smart meter which is additionally connected to a heating contactor which is only turned on overnight for our electric water heater.<\/span>",
-            "likes": 1,
-            "retweets": 0
-        },
-        {
-            "id": "1430872134067396609",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1150719375118348288\/m55E1qgR_normal.jpg'>@chaz_6 @edent Different devices may need different price thresholds - seems more sensible for each device to have pricing data to make its own decisions on. (e.g. over some kind of power-line network, so every device would have access to the pricing of the supply they are connected to)<\/span>",
-            "likes": 1,
-            "retweets": 0
-        },
-        {
-            "id": "1430871774049181698",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1317427557621485569\/8dfU9HAn_normal.jpg'>@edent @neil_neilzone I\u2019m not even sure this qualifies as I?  So you tell it when you want it charged and it knows how much charge there is and does it\u2019s best to look for a rate below X when there is still enough time to complete charging. An intro to programming student could write this \u201cAI\u201d<\/span>",
-            "likes": 0,
-            "retweets": 0
-        },
-        {
-            "id": "1430871597192253445",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg'>@edent So it could only be used to *either* turn on when price is low, *or* turn off when price is high.<\/span>",
-            "likes": 0,
-            "retweets": 0
-        },
-        {
-            "id": "1430871373358960643",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg'>@edent OK, now I understand, ACLS = auxiliary load control system that \/can\/ be built into meters, but this is only a second tail, not the third that I envison.<\/span>",
-            "likes": 0,
-            "retweets": 0
-        },
-        {
-            "id": "1430870961516077056",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg'>@edent I am pretty sure smart meters only have a single always-on tail.<\/span>",
-            "likes": 0,
-            "retweets": 0
-        },
-        {
-            "id": "1430869966346194946",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg'>@chaz_6 that's literally what Smart Meters have. ACLS https:\/\/t.co\/LwzKEmWAbY<\/span>",
-            "likes": 1,
-            "retweets": 0
-        },
-        {
-            "id": "1430869819079987202",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg'>@edent Just to clarify, most residential services in the UK are single phase so only have 1 phase tail - as opposed to 3-phase meters which already have 3.<\/span>",
-            "likes": 0,
-            "retweets": 0
-        },
-        {
-            "id": "1430869428414132232",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1055792578392719360\/TDTgB12d_normal.jpg'>@edent They should make meters with 3 tails - similar to economy 7 meters; 1 tail is always on, 1 tail turns on when price goes low, and 1 tail goes off when prices goes high<\/span>",
-            "likes": 0,
-            "retweets": 0
-        },
-        {
-            "id": "1430868697581764610",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1187488417\/02A_3832_normal.png'>@edent Gradually, \"AI\" is just becoming a synonym for \"technology\" or \"computers\".<\/span>",
-            "likes": 4,
-            "retweets": 0
-        },
-        {
-            "id": "1430867689585713155",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1200717039092092928\/v2m96buM_normal.jpg'>@edent Presumably the AI is used to predict the prices in advance, so that you don\u2019t end up with an uncharged car?<\/span>",
-            "likes": 0,
-            "retweets": 0
-        },
-        {
-            "id": "1430865664693112835",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1211954326442315776\/KGfwBXk6_normal.jpg'>@neil_neilzone How terribly cynical of you. Ahem.<\/span>",
-            "likes": 0,
-            "retweets": 0
-        },
-        {
-            "id": "1430865494546993153",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1367847019864276999\/OSHyqfaK_normal.jpg'>@_hedders @edent I\u2019d go as far to say that it comes as a surprise when something touted as \u201cusing AI\u201d actually uses \u201cAI\u201d.<\/span>",
-            "likes": 3,
-            "retweets": 0
-        },
-        {
-            "id": "1430865325621489669",
-            "text": "<span class='label'><img class='avatar' src='https:\/\/pbs.twimg.com\/profile_images\/1211954326442315776\/KGfwBXk6_normal.jpg'>@edent @neil_neilzone A surprising number of things presented as \"AI\" do turn out on examination to be a bunch of IF statements.<\/span>",
-            "likes": 2,
-            "retweets": 1
-        }
-    ],
-    "links": [
-        {
-            "source": "1430937655475384328",
-            "target": "1430937176683032581"
-        },
-        {
-            "source": "1430937176683032581",
-            "target": "1430862931655340033"
-        },
-        {
-            "source": "1430890708869603330",
-            "target": "1430867689585713155"
-        },
-        {
-            "source": "1430881852760469506",
-            "target": "1430881300664160258"
-        },
-        {
-            "source": "1430881300664160258",
-            "target": "1430876381039185936"
-        },
-        {
-            "source": "1430880632595525636",
-            "target": "1430862931655340033"
-        },
-        {
-            "source": "1430876936520323078",
-            "target": "1430875885100544006"
-        },
-        {
-            "source": "1430876381039185936",
-            "target": "1430875885100544006"
-        },
-        {
-            "source": "1430875885100544006",
-            "target": "1430871373358960643"
-        },
-        {
-            "source": "1430874014793281536",
-            "target": "1430873603457826819"
-        },
-        {
-            "source": "1430873603457826819",
-            "target": "1430871597192253445"
-        },
-        {
-            "source": "1430872684469145602",
-            "target": "1430872417254117378"
-        },
-        {
-            "source": "1430872417254117378",
-            "target": "1430871597192253445"
-        },
-        {
-            "source": "1430872134067396609",
-            "target": "1430869428414132232"
-        },
-        {
-            "source": "1430871774049181698",
-            "target": "1430862931655340033"
-        },
-        {
-            "source": "1430871597192253445",
-            "target": "1430871373358960643"
-        },
-        {
-            "source": "1430871373358960643",
-            "target": "1430869966346194946"
-        },
-        {
-            "source": "1430870961516077056",
-            "target": "1430869966346194946"
-        },
-        {
-            "source": "1430869966346194946",
-            "target": "1430869428414132232"
-        },
-        {
-            "source": "1430869819079987202",
-            "target": "1430869428414132232"
-        },
-        {
-            "source": "1430869428414132232",
-            "target": "1430862931655340033"
-        },
-        {
-            "source": "1430868697581764610",
-            "target": "1430862931655340033"
-        },
-        {
-            "source": "1430867689585713155",
-            "target": "1430862931655340033"
-        },
-        {
-            "source": "1430865664693112835",
-            "target": "1430865494546993153"
-        },
-        {
-            "source": "1430865494546993153",
-            "target": "1430865325621489669"
-        },
-        {
-            "source": "1430865325621489669",
-            "target": "1430862931655340033"
+            "tweet": {
+                "reply_to": "1430862931655340033",
+                "bodyText": "@edent @neil_neilzone A surprising number of things presented as \"AI\" do turn out on examination to be a bunch of IF statements.",
+                "id": "1430865325621489669",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1211954326442315776\/KGfwBXk6_normal.jpg",
+                "time": 1629979852000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1430865325621489669",
+                        "bodyText": "@_hedders @edent I\u2019d go as far to say that it comes as a surprise when something touted as \u201cusing AI\u201d actually uses \u201cAI\u201d.",
+                        "id": "1430865494546993153",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1367847019864276999\/OSHyqfaK_normal.jpg",
+                        "time": 1629979892000
+                    },
+                    "children": [
+                        {
+                            "tweet": {
+                                "reply_to": "1430865494546993153",
+                                "bodyText": "@neil_neilzone How terribly cynical of you. Ahem.",
+                                "id": "1430865664693112835",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1211954326442315776\/KGfwBXk6_normal.jpg",
+                                "time": 1629979933000
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
         }
     ]
-}
+};
