@@ -3,7 +3,7 @@
 <head>
 	<title>TweeView</title>
 	<meta charset="UTF-8">
-	<script src="/js/d3.v4.min.js"></script>
+	<script src="/js/d3.v7.min.js"></script>
 	<script>
 	// Find the right method, call on correct element
 	function launchIntoFullscreen(element) {
@@ -74,7 +74,7 @@
 		var treeData = <?php echo file_get_contents("bus.json"); ?>;
 	</script>
 
-	<script src="/js/tweet_parser.js?cache=2"></script>
+	<script src="/js/tweet_parser.v7.js"></script>
 
 </body>
 </html>

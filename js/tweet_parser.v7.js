@@ -82,11 +82,11 @@ node.append("image")
 	.attr("transform","translate(-24 -24)");
 
 //	Scale and position everything correctly
-var svgWidth = (svg.node().getBBox().width);
-var svgX = svgWidth / 4;
-var clientRect = document.getElementById('tree').getBoundingClientRect();
-var svgHeight = (svg.node().getBBox().height);
-var zoomLevel = Math.min(clientRect.height / svgHeight, clientRect.width / svgWidth, 1);
+// var svgWidth = (svg.node().getBBox().width);
+// var svgX = svgWidth / 4;
+// var clientRect = document.getElementById('tree').getBoundingClientRect();
+// var svgHeight = (svg.node().getBBox().height);
+// var zoomLevel = Math.min(clientRect.height / svgHeight, clientRect.width / svgWidth, 1);
 
 const zoom = d3.zoom()
    .extent([[0, 0], [width, height]])

@@ -21,7 +21,7 @@ if(isset($_GET["error"])) {
 <head>
 	<title>TweeView</title>
 	<meta charset="UTF-8">
-	<script src="/js//d3.v4.min.js"></script>
+	<script src="/js//d3.v7.min.js"></script>
 	<script src="/js/SVG2Bitmap.js"></script>
 	<script>
 	// Find the right method, call on correct element
@@ -222,7 +222,7 @@ if(isset($_GET["error"])) {
 			SVG2Bitmap(document.querySelector('svg'), download)
 		}
 	</script>
-	<script src="/js/tweet_parser.js"></script>
+	<script src="/js/tweet_parser.v7.js"></script>
 
 </body>
 </html>
