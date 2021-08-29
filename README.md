@@ -59,6 +59,7 @@ TweeView is heavily based on several amazing Open Source projects:
 * [d3js](https://d3js.org/) - which is [Copyright Mike Bostock](https://github.com/d3/d3/blob/master/LICENSE)
 * Some of the functions for dealing with [TWARC](https://github.com/DocNow/twarc/) (Twitter Archive) may be [CC0](https://github.com/DocNow/twarc/blob/master/LICENSE)
 * [SVG2Bitmap](https://github.com/Kaiido/SVG2Bitmap) - which is MIT
+* [d3noob's Simple vertical tree diagram using v4](https://bl.ocks.org/d3noob/b024fcce8b4b9264011a1c3e7c7d70dc) - which is MIT
 * Snippets from [StackOverflow](https://stackexchange.com/legal) - which are [CC-BY-SA](https://creativecommons.org/licenses/by-sa/3.0/)
 
 The rest of TweeView is MIT.
