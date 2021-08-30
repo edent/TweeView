@@ -1,0 +1,555 @@
+{
+    "tweet": {
+        "reply_to": null,
+        "bodyText": "Trying a little experiment\u2026\nPlease *reply* to this tweet with your favourite Three Letter Acronym.\ne.g. \"TLA\"\nIf you see your favourite TLA already in my mentions, reply to it with an *incorrect* explanation of what it means.\nThen have a (polite) argument about its true meaning.",
+        "id": "1431911032692383744",
+        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+        "time": 1630229168000
+    },
+    "children": [
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent WTF",
+                "id": "1432047799949053953",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1364293988568559618\/TvUarzOh_normal.jpg",
+                "time": 1630261776000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1432047799949053953",
+                        "bodyText": "@rotttencandy Welcome To Facebook!",
+                        "id": "1432053063116902407",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+                        "time": 1630263031000
+                    },
+                    "children": []
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent UEA University of Easy Access",
+                "id": "1431995430360035342",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/378800000622732199\/f477937c2c0600fcd4dbc4d371ae6c8e_normal.jpeg",
+                "time": 1630249290000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1431995430360035342",
+                        "bodyText": "@eneylon I went there! Can confirm :-)",
+                        "id": "1431996059065192449",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+                        "time": 1630249440000
+                    },
+                    "children": []
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent CIT",
+                "id": "1431976928098070532",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1366808782651744261\/fFF8wXeY_normal.jpg",
+                "time": 1630244879000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1431976928098070532",
+                        "bodyText": "@antisocial_eng I mean, the Colorado Industry Tax is *interesting* but I wouldn't describe it as my \"favourite\".",
+                        "id": "1431980715068076040",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+                        "time": 1630245782000
+                    },
+                    "children": []
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent FYI \ud83d\ude0b",
+                "id": "1431976439151271938",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/871345102467346433\/1FFDGoPW_normal.jpg",
+                "time": 1630244762000
+            },
+            "children": []
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent TVC",
+                "id": "1431973480367538182",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1251928551173038082\/H9FPxYac_normal.jpg",
+                "time": 1630244057000
+            },
+            "children": []
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent GNU",
+                "id": "1431972936706142210",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1327634168835170304\/5IQxjJYg_normal.jpg",
+                "time": 1630243927000
+            },
+            "children": []
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent TLA isn't an acronym. It's an initialism. An acronym is a word made up of initial letters that you can say, eg Aids, Unesco.",
+                "id": "1431972620493377547",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1346110934851465228\/xzHAGvot_normal.jpg",
+                "time": 1630243852000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1431972620493377547",
+                        "bodyText": "@katebevan @edent sits back to watch\ud83c\udf7f",
+                        "id": "1431975375249285126",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1371193511186477056\/sZmGHTpk_normal.jpg",
+                        "time": 1630244508000
+                    },
+                    "children": []
+                },
+                {
+                    "tweet": {
+                        "reply_to": "1431972620493377547",
+                        "bodyText": "@katebevan Three Letter Abbreviation?",
+                        "id": "1431974088805949448",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+                        "time": 1630244202000
+                    },
+                    "children": [
+                        {
+                            "tweet": {
+                                "reply_to": "1431974088805949448",
+                                "bodyText": "@edent @katebevan PhD and BSc are three-letter abbreviations",
+                                "id": "1431981230392844290",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1240650129104928775\/bTo5RpYm_normal.jpg",
+                                "time": 1630245904000
+                            },
+                            "children": [
+                                {
+                                    "tweet": {
+                                        "reply_to": "1431981230392844290",
+                                        "bodyText": "@alanburkittgray @katebevan Public Housing Developments and Bachelor Studio Complexes?",
+                                        "id": "1431982691793125380",
+                                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+                                        "time": 1630246253000
+                                    },
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "tweet": {
+                                "reply_to": "1431974088805949448",
+                                "bodyText": "@edent Yep! Or TLI - Three-Letter Initialism",
+                                "id": "1431975441854836741",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1346110934851465228\/xzHAGvot_normal.jpg",
+                                "time": 1630244524000
+                            },
+                            "children": []
+                        },
+                        {
+                            "tweet": {
+                                "reply_to": "1431974088805949448",
+                                "bodyText": "@edent Abbreviation sits above initialism and acronym. So you can have a TLA acronym, like PIN, but generally it's taken as covering both, so yes, Three Letter Abbreviation",
+                                "id": "1431975083891888129",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1420843220280414208\/VGKEkPg8_normal.jpg",
+                                "time": 1630244439000
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent O.M.G.",
+                "id": "1431971663231569928",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1306539307147157504\/ZLD4Tt0k_normal.jpg",
+                "time": 1630243623000
+            },
+            "children": []
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent FFS",
+                "id": "1431939893819842561",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1216329712642985985\/t8lTMX61_normal.jpg",
+                "time": 1630236049000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1431939893819842561",
+                        "bodyText": "@richardbrent_ I also have a copy of the First Folio Shakespeare.",
+                        "id": "1431942860153176067",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+                        "time": 1630236756000
+                    },
+                    "children": [
+                        {
+                            "tweet": {
+                                "reply_to": "1431942860153176067",
+                                "bodyText": "@edent Forsooth fadge sucka (I mean, that\u2019s that\u2019s what it actually means)",
+                                "id": "1431946045345472513",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1216329712642985985\/t8lTMX61_normal.jpg",
+                                "time": 1630237516000
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent TMI",
+                "id": "1431935781912858627",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1173106196615704581\/ewecBuhR_normal.jpg",
+                "time": 1630235069000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1431935781912858627",
+                        "bodyText": "@proactivepaul @edent Transmit More Information",
+                        "id": "1431938709230956552",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/881435936244064256\/xaLad97I_normal.jpg",
+                        "time": 1630235767000
+                    },
+                    "children": [
+                        {
+                            "tweet": {
+                                "reply_to": "1431938709230956552",
+                                "bodyText": "@SamJSharpe @edent I knew you were going to say that\n\ntelepathic microchip implant",
+                                "id": "1431939598662475777",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1173106196615704581\/ewecBuhR_normal.jpg",
+                                "time": 1630235979000
+                            },
+                            "children": [
+                                {
+                                    "tweet": {
+                                        "reply_to": "1431939598662475777",
+                                        "bodyText": "@proactivepaul @SamJSharpe @edent Clearly Too Many Idiots",
+                                        "id": "1431940043761930251",
+                                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1430666323261001729\/wrLSiqXi_normal.png",
+                                        "time": 1630236085000
+                                    },
+                                    "children": [
+                                        {
+                                            "tweet": {
+                                                "reply_to": "1431940043761930251",
+                                                "bodyText": "@_phzn @SamJSharpe @edent Yes, that was predicted by \n\ntheoretic mathematical induction",
+                                                "id": "1431940696018149382",
+                                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1173106196615704581\/ewecBuhR_normal.jpg",
+                                                "time": 1630236240000
+                                            },
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent MLA",
+                "id": "1431931929520230403",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1289706630112845826\/mV8e8Gvy_normal.jpg",
+                "time": 1630234150000
+            },
+            "children": []
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent ETA",
+                "id": "1431928726086950915",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/378800000400989510\/ceb74d9a3fca8beab5046a412cea141b_normal.png",
+                "time": 1630233386000
+            },
+            "children": []
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent TNT",
+                "id": "1431928084744351755",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/775933079399469056\/KQo7nP0r_normal.jpg",
+                "time": 1630233233000
+            },
+            "children": []
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent FMAGA\n\nExcuse the use of FLA",
+                "id": "1431927979777605638",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1090217826353328129\/U-dj6UDF_normal.jpg",
+                "time": 1630233208000
+            },
+            "children": []
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent M A\n\n(Geddit?)",
+                "id": "1431924134360010753",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/3065839707\/175aeea0b7b20ddb7bf70eebf15b25c8_normal.png",
+                "time": 1630232292000
+            },
+            "children": []
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent As a unicyclist, my favourite's gotta be UPD",
+                "id": "1431921216558964737",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1286003552851238913\/fnNhUZX3_normal.jpg",
+                "time": 1630231596000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1431921216558964737",
+                        "bodyText": "@Fizzabelle_T Unisex Petrie Dishes?",
+                        "id": "1431982843446632449",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+                        "time": 1630246289000
+                    },
+                    "children": []
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent BBC",
+                "id": "1431918566245339139",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1397990851394129920\/1hJXjF34_normal.jpg",
+                "time": 1630230964000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1431918566245339139",
+                        "bodyText": "@aktheknight I love a slice of Big Banana Cake!",
+                        "id": "1431920572414451712",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+                        "time": 1630231442000
+                    },
+                    "children": [
+                        {
+                            "tweet": {
+                                "reply_to": "1431920572414451712",
+                                "bodyText": "@edent @aktheknight I am sure that is actually code for a large, dark coloured, male chicken.",
+                                "id": "1431934592991248385",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/881435936244064256\/xaLad97I_normal.jpg",
+                                "time": 1630234785000
+                            },
+                            "children": []
+                        },
+                        {
+                            "tweet": {
+                                "reply_to": "1431920572414451712",
+                                "bodyText": "@edent @aktheknight Bananas are evil.",
+                                "id": "1431923931296960512",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/3065839707\/175aeea0b7b20ddb7bf70eebf15b25c8_normal.png",
+                                "time": 1630232243000
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent NAD - Not Actually Done.",
+                "id": "1431915116010917889",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/378800000279304570\/bca19680e12b905702eede123d44d8eb_normal.jpeg",
+                "time": 1630230142000
+            },
+            "children": []
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent ETLA - Extended Three Letter Acronym",
+                "id": "1431914178944675841",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1274957081112711168\/N_tfeC57_normal.jpg",
+                "time": 1630229918000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1431914178944675841",
+                        "bodyText": "@SimonZerafa Estimated Time of Late Arrival.",
+                        "id": "1431949095191597058",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+                        "time": 1630238243000
+                    },
+                    "children": []
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent NDA \u2013 Non-Deterministic Acronym",
+                "id": "1431913461236240384",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1108060807772946433\/grrlxlgo_normal.png",
+                "time": 1630229747000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1431913461236240384",
+                        "bodyText": "@dwm @edent Nobody Discuss Anything",
+                        "id": "1431926049336614915",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/660174384116703232\/8QCIn-V5_normal.jpg",
+                        "time": 1630232748000
+                    },
+                    "children": []
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent \u201cIP\u201d\n\n(Yes, I know\u2026)",
+                "id": "1431913034348441601",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1367847019864276999\/OSHyqfaK_normal.jpg",
+                "time": 1630229645000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1431913034348441601",
+                        "bodyText": "@neil_neilzone @edent TCP also",
+                        "id": "1431913804112318468",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1322140182\/swan_normal.jpg",
+                        "time": 1630229829000
+                    },
+                    "children": [
+                        {
+                            "tweet": {
+                                "reply_to": "1431913804112318468",
+                                "bodyText": "@philrandal @neil_neilzone @edent trichlorophenylmethyliodosalicyl",
+                                "id": "1431925092683075592",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1296789496718032901\/e_AE95D-_normal.jpg",
+                                "time": 1630232520000
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent ERG - Extremely Right-wing Group",
+                "id": "1431912944720302082",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1322140182\/swan_normal.jpg",
+                "time": 1630229624000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1431912944720302082",
+                        "bodyText": "@edent (that is its true meaning)",
+                        "id": "1431913167630786561",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1322140182\/swan_normal.jpg",
+                        "time": 1630229677000
+                    },
+                    "children": [
+                        {
+                            "tweet": {
+                                "reply_to": "1431913167630786561",
+                                "bodyText": "@edent Or Extremist...",
+                                "id": "1431913388502761475",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1322140182\/swan_normal.jpg",
+                                "time": 1630229730000
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent TLA - Two Letter Abbreviation \ud83d\ude1c",
+                "id": "1431912638234116096",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1322140182\/swan_normal.jpg",
+                "time": 1630229551000
+            },
+            "children": [
+                {
+                    "tweet": {
+                        "reply_to": "1431912638234116096",
+                        "bodyText": "@philrandal @edent No, I\u2019m sure that\u2019s a Two Letter Acronym...",
+                        "id": "1431913110294523916",
+                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1152612125275242497\/R-d5ZADP_normal.jpg",
+                        "time": 1630229663000
+                    },
+                    "children": [
+                        {
+                            "tweet": {
+                                "reply_to": "1431913110294523916",
+                                "bodyText": "@steveWinterNZ @philrandal I thought it was Three Legged Amphibian?",
+                                "id": "1431913717894193156",
+                                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1228067445153452033\/_A8Uq2VY_normal.jpg",
+                                "time": 1630229808000
+                            },
+                            "children": [
+                                {
+                                    "tweet": {
+                                        "reply_to": "1431913717894193156",
+                                        "bodyText": "@edent @philrandal My mistake, you\u2019re quite correct about the Three Limbed Artisan.",
+                                        "id": "1431913966402347013",
+                                        "avatar": "https:\/\/pbs.twimg.com\/profile_images\/1152612125275242497\/R-d5ZADP_normal.jpg",
+                                        "time": 1630229867000
+                                    },
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tweet": {
+                "reply_to": "1431911032692383744",
+                "bodyText": "@edent but i dont want to wait for \nsomone to post about finite-state machine\nso i can FSM @SpagFlying (Flying Spaghetti Monster)",
+                "id": "1431911943711899649",
+                "avatar": "https:\/\/pbs.twimg.com\/profile_images\/875646504744112132\/JKSKVLmy_normal.jpg",
+                "time": 1630229385000
+            },
+            "children": []
+        }
+    ]
+};
