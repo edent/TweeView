@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB">
 <?php
 
 //	Import the Functions
-require_once("../tweeview.php");
+require_once("tweeview.php");
 
 if(isset($_GET["id"])) {
 	$twid = $_GET["id"];
@@ -22,28 +22,27 @@ if(isset($_GET["error"])) {
 	<title>TweeView</title>
 	<meta charset="UTF-8">
 	<script src="/js/d3.v7.min.js"></script>
-   <style>
-      body {
-         background: #000;
-      }
-
-      .node text {
-         font: 24px sans-serif;
-         cursor: pointer;
-         fill: #ff0;
-         font-weight: bold;
-      }
-
-      .link {
-         fill: none;
-         stroke: #fff;
-         stroke-width: 4px;
-      }
-   </style>
+	<script src="/js/SVG2Bitmap.js"></script>
+	<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
 <body>
+	<div id="horizontal-tree">
+		<svg id="tree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		</svg>
+	</div>
+	<?php require ('controls.php'); ?>
+	<div id="bottom"> Colours represent reply times:
+		<span style="color: #FA5050; margin: 20px;">5&nbsp;minutes</span>
+		<span style="color: #E9FA50; margin: 20px;">10&nbsp;minutes</span>
+		<span style="color: #F5F1D3; margin: 20px;">1&nbsp;hour</span>
+		<span style="color: #47D8F5; margin: 20px;">3&nbsp;hours+</span>
+		<button id="fs" onclick="launchIntoFullscreen(document.documentElement);"><span style="color: #000000;">Go Full Screen</span></button>
+		<button id="dlSVG" onclick="downloadSVG();"><span style="color: #000000;">Download SVG</span></button>
+		<button id="dlPNG" onclick="downloadPNG();"><span style="color: #000000;">Download PNG</span></button>
+	</div>
 <script>
 // https://bl.ocks.org/d3noob/918a64abe4c3682cac3b4c3c852a698d
-var treeData = <?php echo file_get_contents("collapse.json"); //echo get_conversation($twid); ?>;
+var treeData = <?php echo get_conversation($twid); ?>
 
 // Set the dimensions and margins of the diagram
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
@@ -59,7 +58,7 @@ var verticalSeparationBetweenNodes   =  50;
 // append the svg object to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
-var svg = d3.select("body").append("svg")
+var svg = d3.select(document.getElementById('tree')).append("svg")
 	.attr("id", "tree")
    .attr("width", width + margin.right + margin.left)
    .attr("height", height + margin.top + margin.bottom)
@@ -98,13 +97,6 @@ root.y0 = 0;
 root.children.forEach(collapse);
 
 update(root);
-
-	// Scale and position everything correctly
-// var svgWidth = (svg.node().getBBox().width);
-// var svgX = svgWidth / 4;
-// var clientRect = document.getElementById('tree').getBoundingClientRect();
-// var svgHeight = (svg.node().getBBox().height);
-// var zoomLevel = Math.min(clientRect.height / svgHeight, clientRect.width / svgWidth, 1);
 
 const zoom = d3.zoom()
    .extent([[0, 0], [width, height]])
@@ -247,6 +239,7 @@ function update(source) {
    // Enter any new links at the parent's previous position.
    var linkEnter = link.enter().insert('path', "g")
       .attr("class", "link")
+		.attr('stroke', colourEdge.bind(this))
       .attr('d', function(d){
          var o = {x: source.x0, y: source.y0}
          return diagonal(o, o)
@@ -294,9 +287,74 @@ function update(source) {
          d.children = d._children;
          d._children = null;
       }
-      update(d);
+		update(d);
+		// zoomToFit();
    }
 }
+function colourEdge(edgeTarget) {
+	let timeIntervals = [
+		300,
+		600,
+		3600,
+		10800
+	];
+	let timeColors = [
+		'#FA5050',
+		'#E9FA50',
+		'#F5F1D3',
+		'#47D8F5'
+	];
+	let colorScale = d3.scaleSqrt()
+		.domain(timeIntervals)
+		.range(timeColors);
 
+	let data = edgeTarget.data;
+
+	let timeDelta = (data.tweet.time - edgeTarget.parent.data.tweet.time) / 1000;
+	return colorScale(timeDelta).toString();
+}
+
+</script>
+<script>
+	//	Download Buttons
+
+	function downloadSVG(){
+		//	https://gist.github.com/benjymous/eb690239ccd2789b4c1ae3331241437c
+		svgData = document.getElementById("tree").outerHTML
+		svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' })
+		filename = "<?php echo $twid; ?>.svg"
+		fileUrl = URL.createObjectURL(svgBlob)
+		downloadLink = document.createElement('a')
+		downloadLink.href = fileUrl
+		downloadLink.download = filename
+		document.body.appendChild(downloadLink)
+		downloadLink.click()
+		document.body.removeChild(downloadLink)
+	}
+
+	function downloadPNG(){
+		//	Set a temporary home for the image
+		var download = document.getElementById("download");
+		download.onload = function() {
+			window.open(encodeURI(download.src));
+			//	Delete the temporary image
+			download.src = "";
+		}
+		SVG2Bitmap(document.querySelector('svg'), download)
+	}
+</script>
+<script>
+// Find the right method, call on correct element
+function launchIntoFullscreen(element) {
+	if(element.requestFullscreen) {
+		element.requestFullscreen();
+	} else if(element.mozRequestFullScreen) {
+		element.mozRequestFullScreen();
+	} else if(element.webkitRequestFullscreen) {
+		element.webkitRequestFullscreen();
+	} else if(element.msRequestFullscreen) {
+		element.msRequestFullscreen();
+	}
+}
 </script>
 </body>
