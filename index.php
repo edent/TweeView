@@ -7,9 +7,10 @@ require_once("tweeview.php");
 
 if(isset($_GET["id"])) {
 	$twid = $_GET["id"];
+	$json = get_conversation($twid);
 } else {
 	//	Default conversation to view
-	$twid = "837429292476825600";
+	$json = file_get_contents("demo/small.json");
 }
 
 $error = "";
@@ -40,6 +41,9 @@ if(isset($_GET["error"])) {
 	<link rel="stylesheet" type="text/css" href="/style.css" />
 </head>
 <body>
+	<div class="box">
+   	<div class="ribbon"><span>⚠️ BETA! ⚠️</span></div>
+	</div>
 	<div id="page">
 		<div id="treeContainer">
 			<svg id="tree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -57,7 +61,7 @@ if(isset($_GET["error"])) {
 	</div>
 	<?php require ('controls.php'); ?>
 	<script>
-		var treeData = <?php echo get_conversation($twid); ?>;
+		var treeData = <?php echo $json; ?>;
 	</script>
 
 	<script>

@@ -11,9 +11,10 @@
 <?php
 if(isset($_GET["id"])) {
 	$twid = $_GET["id"];
+	$json_url = "force.json.php?id={$twid}";
 } else {
 	//	Default conversation to view
-	$twid = "1427312962646298626";
+	$json_url = "demo/force.small.json";
 }
 ?>
 <body>
@@ -25,7 +26,7 @@ if(isset($_GET["id"])) {
 
     //   Load from JSON
     const Graph = new ThreeForceGraph()
-      .jsonUrl("force.json.php?id=<?php echo $twid; ?>")
+      .jsonUrl("<?php echo $json_url; ?>")
       .nodeColor(0x0000ff)
       .nodeRelSize(8)
       .linkOpacity(1)

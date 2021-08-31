@@ -8,12 +8,13 @@
    <script src="/js/3d-force-graph.min.js"></script>
 
 <?php
-   if(isset($_GET["id"])) {
-   	$twid = $_GET["id"];
-   } else {
-   	//	Default conversation to view
-   	$twid = "1427312962646298626";
-   }
+if(isset($_GET["id"])) {
+	$twid = $_GET["id"];
+	$json_url = "force.json.php?id={$twid}";
+} else {
+	//	Default conversation to view
+	$json_url = "demo/force.small.json";
+}
 ?>
 </head>
 
@@ -25,7 +26,7 @@
       import { UnrealBloomPass } from '//cdn.skypack.dev/three/examples/jsm/postprocessing/UnrealBloomPass.js';
       const Graph = ForceGraph3D()
       (document.getElementById('3d-graph'))
-         .jsonUrl("force.json.php?id=<?php echo $twid; ?>")
+         .jsonUrl("<?php echo $json_url; ?>")
          .backgroundColor("#000")
          .nodeLabel('text')
          .nodeColor(0xff0000)

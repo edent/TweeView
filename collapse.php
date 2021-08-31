@@ -7,9 +7,10 @@ require_once("tweeview.php");
 
 if(isset($_GET["id"])) {
 	$twid = $_GET["id"];
+	$json = get_conversation($twid);
 } else {
 	//	Default conversation to view
-	$twid = "837429292476825600";
+	$json = file_get_contents("demo/small.json");
 }
 
 $error = "";
@@ -42,7 +43,7 @@ if(isset($_GET["error"])) {
 	</div>
 <script>
 // https://bl.ocks.org/d3noob/918a64abe4c3682cac3b4c3c852a698d
-var treeData = <?php echo get_conversation($twid); ?>
+var treeData = <?php echo $json; ?>
 
 // Set the dimensions and margins of the diagram
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
