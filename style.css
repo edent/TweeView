@@ -90,6 +90,8 @@ path {
 	padding-right: 3em;
 	padding-top: .5em;
 	padding-bottom: .5em;
+	border: 0px;
+	margin: 0;
 }
 #beta::before {
 	content: "⚠️ BETA ⚠️";

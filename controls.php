@@ -17,4 +17,4 @@
 		<img id="download"/>
 	</div>
 </div>
-<div id="beta" aria-label="Warning this page is a beta." ></div>
+<hr id="beta" aria-label="Warning this page is a beta.">
