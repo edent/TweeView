@@ -41,9 +41,6 @@ if(isset($_GET["error"])) {
 	<link rel="stylesheet" type="text/css" href="/style.css" />
 </head>
 <body>
-	<div class="box">
-   	<div class="ribbon"><span>⚠️ BETA! ⚠️</span></div>
-	</div>
 	<div id="page">
 		<div id="treeContainer">
 			<svg id="tree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
