@@ -22,6 +22,9 @@ if(isset($_GET["error"])) {
 <head>
 	<title>TweeView</title>
 	<meta charset="UTF-8">
+	<link rel="author" href="https://orcid.org/0000-0002-9265-9069">
+	<meta name="flattr:id" content="49zjz5">
+	<meta name="monetization" content="$ilp.uphold.com/ieELEKD7epqw">
 	<script src="/js/d3.v7.min.js"></script>
 	<script src="/js/SVG2Bitmap.js"></script>
 	<link rel="stylesheet" type="text/css" href="/style.css" />

@@ -3,6 +3,9 @@
 <head>
    <title>TweeView</title>
 	<meta charset="UTF-8">
+   <link rel="author" href="https://orcid.org/0000-0002-9265-9069">
+   <meta name="flattr:id" content="49zjz5">
+   <meta name="monetization" content="$ilp.uphold.com/ieELEKD7epqw">
    <link rel="stylesheet" type="text/css" href="/style.css" />
    <script src="/js/three.js"></script>
    <script src="/js/3d-force-graph.min.js"></script>
